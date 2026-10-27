@@ -200,7 +200,7 @@ endpoints:
         companies: {type: "array[string]", required: true, example: ["shopify.com"]}
         since: {type: string, required: false, note: "ISO date"}
     test_request:
-      body: {companies: ["shopify.com"]}
+      body: {companies: ["klaviyo.com"]}
     cost: {type: per_result, value: 0.04, currency: USD, per: 1, unit: record, source: rate_card_api, source_url: "https://api.fokals.com/v1/prices", checked: '2026-10-27', confidence: documented}
     added: '2026-10-27'
     docs_url: https://www.fokals.com/docs/connect#reference
@@ -217,13 +217,13 @@ endpoints:
     input:
       body:
         title: {type: string, required: false, example: "data engineer"}
-        technology: {type: string, required: false, example: "Snowflake"}
+        technology: {type: string, required: false, note: "a technology Fokals tracks, by name (list_filters kind technologies)"}
         country: {type: string, required: false, example: "GB"}
         work_mode: {type: string, required: false, note: "onsite | hybrid | remote"}
         seen_since: {type: string, required: false, note: "ISO date"}
         limit: {type: integer, required: false, example: 1}
     test_request:
-      body: {title: "data engineer", technology: "Snowflake", limit: 1}
+      body: {title: "data engineer", country: "US", work_mode: "remote", limit: 1}
     cost: {type: per_result, value: 0.04, currency: USD, per: 1, unit: record, source: rate_card_api, source_url: "https://api.fokals.com/v1/prices", checked: '2026-10-27', confidence: documented, note: "per hiring company in the answer"}
     added: '2026-10-27'
     docs_url: https://www.fokals.com/docs/connect#reference
@@ -261,8 +261,8 @@ endpoints:
       body:
         company: {type: string, required: true, example: "shopify.com"}
     test_request:
-      body: {company: "shopify.com"}
-    cost: {type: per_result, value: 0.04, currency: USD, per: 1, unit: record, source: rate_card_api, source_url: "https://api.fokals.com/v1/prices", checked: '2026-10-27', confidence: documented, note: "OBSERVE: charged per company asked about or per connected company; the ledger settles it"}
+      body: {company: "hubspot.com"}
+    cost: {type: per_result, value: 0.04, currency: USD, per: 1, unit: record, source: rate_card_api, source_url: "https://api.fokals.com/v1/prices", checked: '2026-10-27', confidence: documented, note: "per company asked about; free again for 30 days"}
     added: '2026-10-27'
     docs_url: https://www.fokals.com/docs/connect#reference
 
