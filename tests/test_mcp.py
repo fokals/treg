@@ -1670,6 +1670,21 @@ async def test_catalog_get_gives_the_caller_its_own_team_values(clients, monkeyp
     assert out["endpoint"]["your_values"] == {"queryParams.agent": call_resolution.team_label(org_id)}
 
 
+async def test_catalog_get_stays_within_an_mcp_client_output_limit(clients):
+    """Hosts cap a tool result (Claude Code at about 25k tokens); a job with dozens of providers or a
+    long captured example used to return 150k+ characters, and a routed row lost its plan to the schema."""
+    token = (await clients.post("/users", json={"email": "size@superdesign.dev"})).json()["token"]
+    async with mcp_session(clients) as c:
+        routed = await _call_tool(c, "catalog_get", {"endpoint_id": "treg.people.search"}, token=token)
+        crowded = await _call_tool(c, "catalog_get", {"endpoint_id": "aiark.people.search"}, token=token)
+        example = await _call_tool(c, "catalog_get", {"endpoint_id": "finnhub.company.news"}, token=token)
+    assert routed["routing"]["plan"] and "siblings" not in routed
+    assert len(crowded["siblings"]) > 20 and not any("input" in s for s in crowded["siblings"])
+    assert any("/catalog/examples/finnhub.company.news" in h for h in example["hints"])
+    for out in (routed, crowded, example):
+        assert len(json.dumps(out)) < 40_000
+
+
 async def test_tool_called_names_the_mcp_host(clients, monkeypatch, posthog_events):
     """An MCP call's `tool_called` names its host: the inbound User-Agent always, and `clientInfo.name`
     when the request carries it (2026-07-28+; an older client reports it at `initialize` alone, which
