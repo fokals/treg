@@ -1,0 +1,11 @@
+ok verify-treg
+url: http://127.0.0.1:18795
+run_id: 20261027t113007z-4049
+port: 18795
+pid: 4073
+cwd: /workspace
+database: /tmp/treg-verify/runs/20261027t113007z-4049/treg.db
+log: /tmp/treg-verify/runs/20261027t113007z-4049/server.log
+openapi_title: treg
+cli: treg 0.27.0
+marker: 20261027t113007z-4049

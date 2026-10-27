@@ -1,0 +1,1248 @@
+{
+  "endpoint": {
+    "id": "treg.instagram.user.profile",
+    "provider": "treg",
+    "provider_display": "treg",
+    "name": "instagram.user.profile \u2014 routed: best of 12 providers, own keys first",
+    "summary": "Get an Instagram user's public profile \u2014 treg picks the provider (own keys first, then cheapest) and names the one that served",
+    "method": "POST",
+    "path": "/instagram.user.profile",
+    "scope": "",
+    "tier": "core",
+    "kind": "routed",
+    "domain": "user",
+    "call_template": "treg call treg.instagram.user.profile --method POST --data '{\"username\":\"\u2026\"}'",
+    "cost": {
+      "type": "per_success",
+      "value": 0.0009,
+      "currency": "USD",
+      "per": 1,
+      "unit": "call",
+      "source": "inferred",
+      "confidence": "documented",
+      "checked": null,
+      "varies": true,
+      "note": "NOT free: misses are billed too. the children's range $0.0009\u2013$0.015 per hit, 0% markup; you pay the child that served AND every child tried before it that bills a miss (3 of 12 do), up to X-Treg-Route-Max-Cost (default $1 a call). X-Treg-Route-Exclude them, or X-Treg-Route-Waterfall: 0, to pay for one provider only",
+      "usd": 0.0009
+    },
+    "async": null,
+    "platform_eligible": true,
+    "platform_blocked": null,
+    "miss": {
+      "status": 200,
+      "means": "output.username == null"
+    },
+    "status": null,
+    "status_note": null,
+    "superseded_by": null,
+    "verified": null,
+    "added": null,
+    "docs_url": "",
+    "has_example": false,
+    "input": {
+      "bodyType": "json",
+      "body": {
+        "username": {
+          "type": "str",
+          "required": false,
+          "note": "identity key (part of username)"
+        },
+        "user_id": {
+          "type": "str",
+          "required": false,
+          "note": "identity key (part of user_id)"
+        }
+      },
+      "note": "Send everything you know about the subject \u2014 treg derives the rest (full_name \u21c4 first+last), matches each provider on the variants it accepts ({username} | {user_id}) and sends each provider only the fields it wants. On a miss treg keeps trying providers, cheapest first, within X-Treg-Route-Max-Cost (default $1 per call; misses on per-success providers are free). Options ride as headers, never in the body: X-Treg-Route-Waterfall: 0 (stop at the first miss), X-Treg-Route-Max-Cost: <usd>, X-Treg-Route-Prefer / X-Treg-Route-Exclude: <provider>. The response is {output, raw, _treg: {served_by, tried}}; X-Treg-Served-By names the child."
+    },
+    "test_request": {
+      "body": {
+        "username": "\u2026"
+      }
+    },
+    "routed_children": [
+      "brightdata.instagram.user.profile",
+      "crawl4ai.instagram.user.profile",
+      "justoneapi.instagram.user.profile",
+      "scrapecreators.x.v1-instagram-basic-profile",
+      "scrapecreators.instagram.user.profile",
+      "serpapi.x.instagram-profile",
+      "tikhub.x.instagram-v1-fetch-user-info-by-id",
+      "tikhub.x.instagram-v1-fetch-user-info-by-id-v2",
+      "tikhub.x.instagram-v1-fetch-user-info-by-username-v2",
+      "tikhub.x.instagram-v1-fetch-user-info-by-username-v3",
+      "tikhub.x.instagram-v3-get-user-profile",
+      "tikhub.instagram.user.profile"
+    ],
+    "capability": "instagram.user.profile",
+    "capability_description": "Get a user's public profile",
+    "platform": "instagram",
+    "platform_label": "Instagram",
+    "observed": null
+  },
+  "provider": {
+    "service": "treg",
+    "display_name": "treg"
+  },
+  "siblings": [
+    {
+      "id": "brightdata.instagram.user.profile",
+      "provider": "brightdata",
+      "provider_display": "Bright Data",
+      "name": "Instagram profile by URL \u2014 followers, bio, verification",
+      "summary": "Get the public profile of an Instagram user (followers, bio, verification)",
+      "method": "POST",
+      "path": "/datasets/v3/scrape",
+      "scope": "any_account",
+      "tier": "core",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call brightdata.instagram.user.profile --method POST --query dataset_id=gd_l1vikfch901nx3by4 --query format=json --data '[{\"url\":\"https://www.instagram.com/instagram\"}]'",
+      "cost": {
+        "type": "per_result",
+        "value": 0.0015,
+        "currency": "USD",
+        "per": 1,
+        "unit": "record",
+        "source": "docs",
+        "source_url": "https://brightdata.com/pricing",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "$1.50 per 1000 records \u2014 one profile is one record; pay-per-success",
+        "usd": 0.0015
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "https://docs.brightdata.com/datasets/scrapers/instagram/quickstart",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "dataset_id": {
+            "type": "string",
+            "required": true,
+            "note": "pinned to the documented Instagram \u2014 Profiles dataset",
+            "example": "gd_l1vikfch901nx3by4"
+          },
+          "format": {
+            "type": "string",
+            "required": false,
+            "example": "json"
+          }
+        },
+        "body": {
+          "input": {
+            "type": "array",
+            "required": true,
+            "note": "one object per profile URL \u2014 a username alone is not accepted",
+            "example": [
+              {
+                "url": "https://www.instagram.com/instagram"
+              }
+            ]
+          }
+        },
+        "bodyType": "json",
+        "note": "same generic runner as brightdata.web.scrape.structured with the dataset_id fixed, which is why the id and output columns are stable enough to compare against tikhub / justoneapi. Batching several profile URLs into one call is both cheaper and faster than one call each; past 1 minute it falls back to 202 + snapshot_id"
+      },
+      "test_request": {
+        "queryParams": {
+          "dataset_id": "gd_l1vikfch901nx3by4",
+          "format": "json"
+        },
+        "body": [
+          {
+            "url": "https://www.instagram.com/instagram"
+          }
+        ]
+      },
+      "observed": null
+    },
+    {
+      "id": "crawl4ai.instagram.user.profile",
+      "provider": "crawl4ai",
+      "provider_display": "Crawl4AI",
+      "name": "Profile of an Instagram account",
+      "summary": "One Instagram account as one row: username, full name, biography, followers, following, posts, verified and private, category, external link, picture, user id. `username` is the account (@name or an instagram.com URL). Without `session` a public profile is read in about 2 s; biography, following, category and link are null. `full_profile` true adds biography, following and link from the profile page (3-6 s). A hidden profile comes from a slower source (30-80 s, billed per record). With `session` (your `sessionid` and `csrftoken` cookies, used once, never stored) every column is read as you. Columns: username, full_name, biography, followers, following, posts, is_verified, is_private, category, external_url, profile_pic_url, user_id.",
+      "method": "POST",
+      "path": "/recipes/instagram-profile",
+      "scope": "any_account",
+      "tier": "core",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call crawl4ai.instagram.user.profile --method POST --data '{\"username\":\"nasa\"}'",
+      "cost": {
+        "type": "per_success",
+        "value": 0.9,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.9 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.0009
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-10-11",
+      "added": "2026-10-11",
+      "docs_url": "https://crawl4ai.com/llms.txt",
+      "has_example": true,
+      "input": {
+        "bodyType": "json",
+        "body": {
+          "full_profile": {
+            "type": "boolean",
+            "required": false,
+            "note": "default False",
+            "example": false
+          },
+          "username": {
+            "type": "string",
+            "required": true,
+            "example": "nasa"
+          }
+        }
+      },
+      "body_allowlist": true,
+      "test_request": {
+        "body": {
+          "username": "nasa"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "instagram.instagram.user.profile",
+      "provider": "instagram",
+      "provider_display": "Instagram",
+      "name": "Your Instagram profile and follower counts",
+      "summary": "Get your Instagram professional account's profile and follower counts",
+      "method": "GET",
+      "path": "/{ig_user_id}",
+      "scope": "own_account",
+      "tier": "core",
+      "kind": "data",
+      "authorization_method": "instagram-login",
+      "authorization_methods": [
+        "instagram-login",
+        "facebook-page"
+      ],
+      "authorization_paths": {},
+      "required_scopes": [
+        "instagram_business_basic"
+      ],
+      "required_resource": "instagram_professional_account",
+      "token_type": "instagram_user",
+      "domain": "user",
+      "call_template": "treg call instagram.instagram.user.profile --query ig_user_id=17841439917904520 --query fields=id,username,name,biography,website,profile_picture_url,followers_count,follows_count,media_count",
+      "cost": {
+        "type": "free",
+        "value": 0,
+        "currency": "USD",
+        "unit": "call",
+        "note": "included with the connected account; Meta rate-limits per app and per account rather than charging per call",
+        "usd": 0.0
+      },
+      "async": null,
+      "platform_eligible": false,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "https://developers.facebook.com/docs/instagram-platform/reference/instagram-user",
+      "has_example": true,
+      "input": {
+        "pathParams": {
+          "ig_user_id": {
+            "type": "string",
+            "required": true,
+            "note": "numeric Instagram professional account id (from /me/accounts?fields=instagram_business_account{id,username}) \u2014 not the @handle",
+            "example": "17841400000000000"
+          }
+        },
+        "queryParams": {
+          "fields": {
+            "type": "string",
+            "required": true,
+            "note": "comma-separated",
+            "example": "id,username,name,biography,website,profile_picture_url,followers_count,follows_count,media_count"
+          }
+        },
+        "note": "the same shape reads ANOTHER public professional account through the business_discovery edge: fields=business_discovery.username(their_handle){followers_count,media_count} on YOUR id \u2014 public metrics only, and only for professional accounts"
+      },
+      "test_request": {
+        "pathParams": {
+          "ig_user_id": "17841439917904520"
+        },
+        "queryParams": {
+          "fields": "id,username,name,biography,website,profile_picture_url,followers_count,follows_count,media_count"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "justoneapi.instagram.user.profile",
+      "provider": "justoneapi",
+      "provider_display": "Just One API",
+      "name": "Instagram user profile by username",
+      "summary": "Public Instagram profile by username",
+      "method": "GET",
+      "path": "/api/instagram/get-user-detail/v2",
+      "scope": "any_account",
+      "tier": "core",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call justoneapi.instagram.user.profile --query username=instagram",
+      "cost": {
+        "type": "per_success",
+        "value": 0.1,
+        "currency": "CNY",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://www.justoneapi.com/",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "billed only on success (code 0); errors free \u2014 dashboard price export 2026-07-28",
+        "usd": 0.01476
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "https://docs.justoneapi.com/en/api/instagram/user-profile-v2",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "username": {
+            "type": "string",
+            "required": true,
+            "example": "instagram"
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "username": "instagram"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "justoneapi.x.instagram-get-user-detail-v1",
+      "provider": "justoneapi",
+      "provider_display": "Just One API",
+      "name": "Instagram user profile by username",
+      "summary": "Retrieves an Instagram user profile by username.",
+      "method": "GET",
+      "path": "/api/instagram/get-user-detail/v1",
+      "scope": "",
+      "tier": "extended",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call justoneapi.x.instagram-get-user-detail-v1 --query username=instagram",
+      "cost": {
+        "type": "per_success",
+        "value": 0.1,
+        "currency": "CNY",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://www.justoneapi.com/",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "billed only on success (code 0); errors free",
+        "usd": 0.01476
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "https://docs.justoneapi.com/en/api/instagram/user-profile-v1",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "username": {
+            "type": "string",
+            "required": true,
+            "note": "The Instagram username whose profile details are to be retrieved."
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "username": "instagram"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "scrapecreators.instagram.user.profile",
+      "provider": "scrapecreators",
+      "provider_display": "ScrapeCreators",
+      "name": "Instagram profile by username \u2014 bio, followers, links",
+      "summary": "Retrieves comprehensive public Instagram profile information including biography, bio links, follower and following counts, verification status, and profile picture URLs.",
+      "method": "GET",
+      "path": "/v1/instagram/profile",
+      "scope": "any_account",
+      "tier": "core",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call scrapecreators.instagram.user.profile --query handle=natgeo",
+      "cost": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "https://docs.scrapecreators.com/instagram/profile",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "handle": {
+            "type": "string",
+            "required": true,
+            "note": "Instagram handle",
+            "example": "natgeo"
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "handle": "natgeo"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "scrapecreators.x.v1-instagram-basic-profile",
+      "provider": "scrapecreators",
+      "provider_display": "ScrapeCreators",
+      "name": "Instagram basic profile by user id \u2014 bio, followers",
+      "summary": "Fetches a lightweight Instagram profile summary by user ID, returning username, full name, biography, profile picture URL, verification status, follower count, following count, media count, and account privacy and type.",
+      "method": "GET",
+      "path": "/v1/instagram/basic-profile",
+      "scope": "",
+      "tier": "extended",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call scrapecreators.x.v1-instagram-basic-profile --query userId=314216",
+      "cost": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "https://docs.scrapecreators.com/instagram/basic-profile",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "userId": {
+            "type": "string",
+            "required": false,
+            "note": "Instagram user id",
+            "example": "314216"
+          },
+          "cache_max_age": {
+            "type": "string",
+            "required": false,
+            "note": "If we have a response in the cache that is this many days old or newer, return the cached response (0 credits, with \"cached\": true and a \"cached_at\" timestamp). Otherwise, scrape a live result (1 credit). [See the Cac...",
+            "example": "7d"
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "userId": "314216"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "serpapi.x.instagram-profile",
+      "provider": "serpapi",
+      "provider_display": "SerpApi",
+      "name": "Public Instagram profile by username \u2014 bio, followers",
+      "summary": "Public Instagram profile data for a username \u2014 bio, followers, recent posts",
+      "method": "GET",
+      "path": "/search",
+      "scope": "",
+      "tier": "extended",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call serpapi.x.instagram-profile --query engine=instagram_profile --query profile_id=serpapicom",
+      "cost": {
+        "type": "per_success",
+        "value": 0.015,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "docs",
+        "source_url": "https://serpapi.com/pricing",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "usd": 0.015
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "https://serpapi.com/instagram-profile-api",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "engine": {
+            "type": "string",
+            "required": true,
+            "example": "instagram_profile"
+          },
+          "profile_id": {
+            "type": "string",
+            "required": true,
+            "note": "Instagram username",
+            "example": "serpapicom"
+          },
+          "next_page_token": {
+            "type": "string",
+            "required": false,
+            "note": "pagination cursor for posts"
+          }
+        },
+        "note": "profile fields at top level (biography, followers, posts_count); posts in an array with pagination via serpapi_pagination.next_page_token."
+      },
+      "test_request": {
+        "queryParams": {
+          "engine": "instagram_profile",
+          "profile_id": "serpapicom"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "tikhub.instagram.user.profile",
+      "provider": "tikhub",
+      "provider_display": "TikHub",
+      "name": "Instagram profile by username",
+      "summary": "Public Instagram profile by username",
+      "method": "GET",
+      "path": "/api/v1/instagram/v1/fetch_user_info_by_username",
+      "scope": "any_account",
+      "tier": "core",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call tikhub.instagram.user.profile --query username=instagram",
+      "cost": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "note": "the v3 equivalent (/instagram/v3/get_user_profile) costs 0.008",
+        "usd": 0.001
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "https://docs.tikhub.io/",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "username": {
+            "type": "string",
+            "required": true,
+            "note": "handle without the '@'",
+            "example": "instagram"
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "username": "instagram"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "tikhub.x.instagram-v1-fetch-user-info-by-id",
+      "provider": "tikhub",
+      "provider_display": "TikHub",
+      "name": "Instagram profile by user id",
+      "summary": "Instagram: fetch user info by id (v1)",
+      "method": "GET",
+      "path": "/api/v1/instagram/v1/fetch_user_info_by_id",
+      "scope": "",
+      "tier": "extended",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call tikhub.x.instagram-v1-fetch-user-info-by-id --query user_id=25025320",
+      "cost": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "user_id": {
+            "type": "string",
+            "required": true,
+            "note": "Instagram user ID",
+            "example": "25025320"
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "user_id": "25025320"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "tikhub.x.instagram-v1-fetch-user-info-by-id-v2",
+      "provider": "tikhub",
+      "provider_display": "TikHub",
+      "name": "Instagram profile by user id",
+      "summary": "Instagram: fetch user info by id v2 (v1)",
+      "method": "GET",
+      "path": "/api/v1/instagram/v1/fetch_user_info_by_id_v2",
+      "scope": "",
+      "tier": "extended",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call tikhub.x.instagram-v1-fetch-user-info-by-id-v2 --query user_id=25025320",
+      "cost": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "user_id": {
+            "type": "string",
+            "required": true,
+            "note": "Instagram user ID",
+            "example": "25025320"
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "user_id": "25025320"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "tikhub.x.instagram-v1-fetch-user-info-by-username-v2",
+      "provider": "tikhub",
+      "provider_display": "TikHub",
+      "name": "Instagram profile by username",
+      "summary": "Instagram: fetch user info by username v2 (v1)",
+      "method": "GET",
+      "path": "/api/v1/instagram/v1/fetch_user_info_by_username_v2",
+      "scope": "",
+      "tier": "extended",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call tikhub.x.instagram-v1-fetch-user-info-by-username-v2 --query username=instagram",
+      "cost": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "username": {
+            "type": "string",
+            "required": true,
+            "note": "Instagram username",
+            "example": "instagram"
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "username": "instagram"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "tikhub.x.instagram-v1-fetch-user-info-by-username-v3",
+      "provider": "tikhub",
+      "provider_display": "TikHub",
+      "name": "Instagram profile by username",
+      "summary": "Instagram: fetch user info by username v3 (v1)",
+      "method": "GET",
+      "path": "/api/v1/instagram/v1/fetch_user_info_by_username_v3",
+      "scope": "",
+      "tier": "extended",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call tikhub.x.instagram-v1-fetch-user-info-by-username-v3 --query username=instagram",
+      "cost": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "username": {
+            "type": "string",
+            "required": true,
+            "note": "Instagram username",
+            "example": "instagram"
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "username": "instagram"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "tikhub.x.instagram-v2-fetch-user-info",
+      "provider": "tikhub",
+      "provider_display": "TikHub",
+      "name": "Instagram profile by username or user id",
+      "summary": "Instagram: fetch user info (v2)",
+      "method": "GET",
+      "path": "/api/v1/instagram/v2/fetch_user_info",
+      "scope": "",
+      "tier": "extended",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call tikhub.x.instagram-v2-fetch-user-info --query username=instagram --query user_id=18527",
+      "cost": {
+        "type": "per_success",
+        "value": 0.002,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.002
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "username": {
+            "type": "string",
+            "required": false,
+            "note": "Username",
+            "example": "instagram"
+          },
+          "user_id": {
+            "type": "string",
+            "required": false,
+            "note": "User ID",
+            "example": "18527"
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "username": "instagram",
+          "user_id": "18527"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "tikhub.x.instagram-v3-get-user-brief",
+      "provider": "tikhub",
+      "provider_display": "TikHub",
+      "name": "Instagram profile brief by username and user id",
+      "summary": "Instagram: get user brief (v3)",
+      "method": "GET",
+      "path": "/api/v1/instagram/v3/get_user_brief",
+      "scope": "",
+      "tier": "extended",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call tikhub.x.instagram-v3-get-user-brief --query user_id=791258468 --query username=99brasil",
+      "cost": {
+        "type": "per_success",
+        "value": 0.008,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.008
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "user_id": {
+            "type": "string",
+            "required": true,
+            "note": "User ID",
+            "example": "791258468"
+          },
+          "username": {
+            "type": "string",
+            "required": true,
+            "note": "Username",
+            "example": "99brasil"
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "user_id": "791258468",
+          "username": "99brasil"
+        }
+      },
+      "observed": null
+    },
+    {
+      "id": "tikhub.x.instagram-v3-get-user-profile",
+      "provider": "tikhub",
+      "provider_display": "TikHub",
+      "name": "Instagram profile by username",
+      "summary": "Instagram: get user profile (v3)",
+      "method": "GET",
+      "path": "/api/v1/instagram/v3/get_user_profile",
+      "scope": "",
+      "tier": "extended",
+      "kind": "data",
+      "domain": "user",
+      "call_template": "treg call tikhub.x.instagram-v3-get-user-profile --query username=instagram",
+      "cost": {
+        "type": "per_success",
+        "value": 0.008,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.008
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": "2026-07-28",
+      "added": "2026-07-28",
+      "docs_url": "",
+      "has_example": true,
+      "input": {
+        "queryParams": {
+          "username": {
+            "type": "string",
+            "required": true,
+            "note": "Username",
+            "example": "instagram"
+          }
+        }
+      },
+      "test_request": {
+        "queryParams": {
+          "username": "instagram"
+        }
+      },
+      "observed": null
+    }
+  ],
+  "observed_pending": true,
+  "related_capabilities": [
+    {
+      "endpoint_id": "treg.instagram.hashtag.posts",
+      "capability": "instagram.hashtag.posts",
+      "does": "List posts under a hashtag"
+    },
+    {
+      "endpoint_id": "treg.instagram.post.comments",
+      "capability": "instagram.post.comments",
+      "does": "List a post's comments"
+    },
+    {
+      "endpoint_id": "treg.instagram.post.detail",
+      "capability": "instagram.post.detail",
+      "does": "Get a post's content & stats"
+    },
+    {
+      "endpoint_id": "treg.instagram.search.reels",
+      "capability": "instagram.search.reels",
+      "does": "Search reels by keyword"
+    },
+    {
+      "endpoint_id": "treg.instagram.search.users",
+      "capability": "instagram.search.users",
+      "does": "Search users by keyword"
+    }
+  ],
+  "routing": {
+    "contract": {
+      "identity": [
+        [
+          "username"
+        ],
+        [
+          "user_id"
+        ]
+      ],
+      "output": {
+        "username": {
+          "type": "str",
+          "required": true
+        },
+        "user_id": {
+          "type": "str"
+        },
+        "full_name": {
+          "type": "str"
+        },
+        "followers": {
+          "type": "int"
+        },
+        "following": {
+          "type": "int"
+        },
+        "posts_count": {
+          "type": "int"
+        },
+        "is_verified": {
+          "type": "bool"
+        },
+        "is_private": {
+          "type": "bool"
+        },
+        "biography": {
+          "type": "str"
+        }
+      },
+      "miss": "username == null",
+      "derive": {}
+    },
+    "plan": [
+      {
+        "endpoint_id": "crawl4ai.instagram.user.profile",
+        "accepts": [
+          [
+            "username"
+          ]
+        ],
+        "usd": 0.0009,
+        "skipped": "no crawl4ai key on this deployment and no own key"
+      },
+      {
+        "endpoint_id": "tikhub.instagram.user.profile",
+        "accepts": [
+          [
+            "username"
+          ]
+        ],
+        "usd": 0.001,
+        "skipped": "no tikhub key on this deployment and no own key"
+      },
+      {
+        "endpoint_id": "tikhub.x.instagram-v1-fetch-user-info-by-id",
+        "accepts": [
+          [
+            "user_id"
+          ]
+        ],
+        "usd": 0.001,
+        "skipped": "no tikhub key on this deployment and no own key"
+      },
+      {
+        "endpoint_id": "tikhub.x.instagram-v1-fetch-user-info-by-id-v2",
+        "accepts": [
+          [
+            "user_id"
+          ]
+        ],
+        "usd": 0.001,
+        "skipped": "no tikhub key on this deployment and no own key"
+      },
+      {
+        "endpoint_id": "tikhub.x.instagram-v1-fetch-user-info-by-username-v2",
+        "accepts": [
+          [
+            "username"
+          ]
+        ],
+        "usd": 0.001,
+        "skipped": "no tikhub key on this deployment and no own key"
+      },
+      {
+        "endpoint_id": "tikhub.x.instagram-v1-fetch-user-info-by-username-v3",
+        "accepts": [
+          [
+            "username"
+          ]
+        ],
+        "usd": 0.001,
+        "skipped": "no tikhub key on this deployment and no own key"
+      },
+      {
+        "endpoint_id": "brightdata.instagram.user.profile",
+        "accepts": [
+          [
+            "username"
+          ]
+        ],
+        "usd": 0.0015,
+        "skipped": "no brightdata key on this deployment and no own key"
+      },
+      {
+        "endpoint_id": "scrapecreators.instagram.user.profile",
+        "accepts": [
+          [
+            "username"
+          ]
+        ],
+        "usd": 0.00188,
+        "skipped": "no scrapecreators key on this deployment and no own key"
+      },
+      {
+        "endpoint_id": "scrapecreators.x.v1-instagram-basic-profile",
+        "accepts": [
+          [
+            "user_id"
+          ]
+        ],
+        "usd": 0.00188,
+        "skipped": "no scrapecreators key on this deployment and no own key"
+      },
+      {
+        "endpoint_id": "tikhub.x.instagram-v3-get-user-profile",
+        "accepts": [
+          [
+            "username"
+          ]
+        ],
+        "usd": 0.008,
+        "skipped": "no tikhub key on this deployment and no own key"
+      },
+      {
+        "endpoint_id": "justoneapi.instagram.user.profile",
+        "accepts": [
+          [
+            "username"
+          ]
+        ],
+        "usd": 0.01476,
+        "skipped": "no justoneapi key on this deployment and no own key"
+      },
+      {
+        "endpoint_id": "serpapi.x.instagram-profile",
+        "accepts": [
+          [
+            "username"
+          ]
+        ],
+        "usd": 0.015,
+        "skipped": "no serpapi key on this deployment and no own key"
+      }
+    ],
+    "also": [
+      {
+        "endpoint_id": "instagram.instagram.user.profile",
+        "usd": 0.0
+      },
+      {
+        "endpoint_id": "justoneapi.x.instagram-get-user-detail-v1",
+        "usd": 0.01476
+      },
+      {
+        "endpoint_id": "tikhub.x.instagram-v2-fetch-user-info",
+        "usd": 0.002
+      },
+      {
+        "endpoint_id": "tikhub.x.instagram-v3-get-user-brief",
+        "usd": 0.008
+      }
+    ],
+    "headers": {
+      "X-Treg-Route-Waterfall": "on by default: a miss tries the next provider; 0 = stop at the first miss",
+      "X-Treg-Route-Max-Cost": "USD ceiling for the whole call (default 1.00)",
+      "X-Treg-Route-Prefer": "provider[,\u2026]",
+      "X-Treg-Route-Exclude": "provider[,\u2026]",
+      "X-Treg-Route-Strict-Filters": "1 = never call a provider that cannot apply a filter you sent (answers 422, nothing charged); off by default \u2014 the answer names what was ignored in X-Treg-Ignored-Filters"
+    }
+  },
+  "call_template": "treg call treg.instagram.user.profile --method POST --data '{\"username\":\"\u2026\"}'",
+  "example_response": null,
+  "hints": [
+    "treg call treg.instagram.user.profile --method POST --data '{\"username\":\"\u2026\"}'   # run it \u2014 key injected server-side",
+    "treg catalog get brightdata.instagram.user.profile   # the same job from brightdata"
+  ]
+}

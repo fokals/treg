@@ -1,0 +1,530 @@
+{
+  "query": "",
+  "count": 5,
+  "total": 342,
+  "results": [
+    {
+      "id": "village.people.search",
+      "provider": "village",
+      "provider_display": "Village.ai",
+      "name": "Search people in plain language, network or global",
+      "summary": "Search for people using natural language queries.",
+      "method": "POST",
+      "path": "/v2/people/search",
+      "scope": "own_account",
+      "tier": "core",
+      "kind": "data",
+      "domain": "contacts",
+      "call_template": "treg call village.people.search --method POST --data '{\"prompt\":\"CEO of Microsoft\",\"scope\":\"global\",\"limit\":1}'",
+      "cost": {
+        "type": "per_result",
+        "value": 3,
+        "currency": "credit",
+        "per": 10,
+        "unit": "result",
+        "source": "docs",
+        "source_url": "https://docs.village.ai/api-reference/people/search-people",
+        "checked": "2026-10-09",
+        "confidence": "inferred",
+        "note": "A floor: 3 credits per 10 results returned (0.3 per result, rounded up per call), and every call also pays for the AI work, metered on tokens with no cap (docs: 2 to 3 credits). A search that returns no results pays for the AI work only. With scope specific_list, limit is ignored and every match is returned and charged.",
+        "usd": 0.006
+      },
+      "async": null,
+      "platform_eligible": false,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": null,
+      "added": "2026-10-20",
+      "docs_url": "https://docs.village.ai/api-reference/people/search-people",
+      "has_example": false,
+      "input": {
+        "bodyType": "json",
+        "body": {
+          "prompt": {
+            "type": "string",
+            "required": false,
+            "example": "VP Engineering at Series B fintechs in NYC",
+            "note": "Natural language search query. Send it as prompt, not query. Optional when filters or list_filter is sent."
+          },
+          "filters": {
+            "type": "object",
+            "required": false,
+            "note": "Structured search filters. Multi-value keys accept an array of values (preferred) or a legacy comma-separated / JSON-array string. Keys include name, linkedinUrl, position, seniority, department, function, company, companyDomain, companyIndustry, companySize, country, city and yearsOfExperienceMin; the docs list them all."
+          },
+          "limit": {
+            "type": "integer",
+            "required": false,
+            "default": 25,
+            "min": 1,
+            "max": 100,
+            "example": 25,
+            "note": "Maximum number of results per page. The price scales with the results returned."
+          },
+          "mode": {
+            "type": "string",
+            "required": false,
+            "enum": [
+              "auto",
+              "lookup",
+              "simple",
+              "complex"
+            ],
+            "note": "auto classifies the query into lookup, simple or complex. lookup is for direct matches, simple for firmographic queries, complex for multi-step or subjective queries."
+          },
+          "scope": {
+            "type": "string",
+            "required": false,
+            "enum": [
+              "network",
+              "global",
+              "specific_list"
+            ],
+            "note": "Defaults: lookup=global, simple=network, complex=network. network searches your connections first, global searches everyone, specific_list needs specific_list_data."
+          },
+          "cursor": {
+            "type": "string|object",
+            "required": false,
+            "note": "Pagination cursor from the previous response (encoded string or cursor object)."
+          },
+          "network_filters": {
+            "type": "object",
+            "required": false,
+            "note": "Network filtering options: connection_degrees, introducer_linkedin_ids, user_to_introducer_types, user_to_introducer_min_score, introducer_to_target_types, introducer_to_target_min_score, exclude_teams, exclude_community."
+          },
+          "include_counts": {
+            "type": "string",
+            "required": false,
+            "enum": [
+              "global",
+              "network",
+              "all"
+            ],
+            "note": "Inline count scopes computed on the first page only. Ignored when cursor is sent, and adds latency."
+          },
+          "specific_list_data": {
+            "type": "object",
+            "required": false,
+            "note": "Required when scope is specific_list: people_linkedin_identifiers, 1 to 50,000 entries, each a bare LinkedIn identifier or {id, score}. limit is then ignored and every match comes back in one response."
+          },
+          "list_filter": {
+            "type": "object",
+            "required": false,
+            "example": {
+              "people_list_id": 123
+            },
+            "note": "Search within your saved lists: people_list_id, company_list_id, or both. A list alone is a valid search. Lists must belong to your active workspace."
+          },
+          "screening_handoff": {
+            "type": "boolean",
+            "required": false,
+            "example": false,
+            "note": "Complex searches keep only objective constraints in SQL and return the subjective ones as metadata.screening_criteria for a downstream screening step."
+          }
+        },
+        "note": "Search people in plain language, across your network or globally, to build lead lists, prospect lists, candidate shortlists and investor target lists. scope defaults to network for the simple and complex modes and to global for lookup, so pass scope global to search everyone. The Free plan returns at most 10 results. Complex searches usually take 20 to 60 seconds; wait rather than retry. Streaming (stream) is not accepted by this tool."
+      },
+      "body_allowlist": true,
+      "test_request": {
+        "body": {
+          "prompt": "CEO of Microsoft",
+          "scope": "global",
+          "limit": 1
+        }
+      },
+      "capability": "people.search",
+      "capability_description": "Find people by role, company or location \u2014 lead lists and prospects (sales leads)",
+      "platform": "people",
+      "platform_label": "People & contact data",
+      "score": 0.0,
+      "observed": null
+    },
+    {
+      "id": "village.companies.search",
+      "provider": "village",
+      "provider_display": "Village.ai",
+      "name": "Search companies in plain language, network or global",
+      "summary": "Search for companies using natural language queries.",
+      "method": "POST",
+      "path": "/v2/companies/search",
+      "scope": "own_account",
+      "tier": "core",
+      "kind": "data",
+      "domain": "companies",
+      "call_template": "treg call village.companies.search --method POST --data '{\"prompt\":\"Stripe\",\"scope\":\"global\",\"limit\":1}'",
+      "cost": {
+        "type": "per_result",
+        "value": 3,
+        "currency": "credit",
+        "per": 10,
+        "unit": "result",
+        "source": "docs",
+        "source_url": "https://docs.village.ai/api-reference/companies/search-companies",
+        "checked": "2026-10-09",
+        "confidence": "inferred",
+        "note": "A floor: 3 credits per 10 results returned (0.3 per result, rounded up per call), and every call also pays for the AI work, metered on tokens with no cap (docs: 2 to 3 credits). A search that returns no results pays for the AI work only.",
+        "usd": 0.006
+      },
+      "async": null,
+      "platform_eligible": false,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": null,
+      "added": "2026-10-20",
+      "docs_url": "https://docs.village.ai/api-reference/companies/search-companies",
+      "has_example": false,
+      "input": {
+        "bodyType": "json",
+        "body": {
+          "prompt": {
+            "type": "string",
+            "required": false,
+            "example": "Find B2B SaaS companies with 50-200 employees in California",
+            "note": "Natural language search query. Send it as prompt, not query. Optional when filters or list_filter is sent."
+          },
+          "filters": {
+            "type": "object",
+            "required": false,
+            "note": "Structured company filters, compiled deterministically. Send filters without a prompt. Keys include name, domain, linkedinUrl, industry, companySize, companyType, country, city, fundingStage, foundedAfter, hiring and totalFundingMinUsd; the docs list them all."
+          },
+          "limit": {
+            "type": "integer",
+            "required": false,
+            "default": 25,
+            "min": 1,
+            "max": 100,
+            "example": 25,
+            "note": "Maximum number of results per page. The price scales with the results returned."
+          },
+          "mode": {
+            "type": "string",
+            "required": false,
+            "default": "auto",
+            "enum": [
+              "auto",
+              "lookup",
+              "simple",
+              "complex"
+            ],
+            "example": "auto",
+            "note": "Search mode for prompt-only searches: auto lets the system decide, lookup is a direct match, simple is LLM-powered, complex adds thinking and high-reasoning SQL generation. Structured filters always compile deterministically."
+          },
+          "scope": {
+            "type": "string",
+            "required": false,
+            "enum": [
+              "network",
+              "global"
+            ],
+            "note": "network searches companies connected to your network first, global searches all companies."
+          },
+          "cursor": {
+            "type": "string|object",
+            "required": false,
+            "note": "Pagination cursor from the previous response (encoded string or cursor object)."
+          },
+          "network_filters": {
+            "type": "object",
+            "required": false,
+            "note": "Network path and relationship filters: connection_degrees, introducer_linkedin_ids, user_to_introducer_types, user_to_introducer_min_score, introducer_to_target_types, introducer_to_target_min_score, exclude_teams, exclude_community."
+          },
+          "include_counts": {
+            "type": "string",
+            "required": false,
+            "enum": [
+              "global",
+              "network",
+              "all"
+            ],
+            "note": "Inline count scopes computed on the first page only. Ignored when cursor is sent, and adds latency."
+          },
+          "list_filter": {
+            "type": "object",
+            "required": false,
+            "example": {
+              "company_list_id": 123
+            },
+            "note": "Search within your saved lists: company_list_id, people_list_id, or both. A list alone is a valid search. Lists must belong to your active workspace."
+          },
+          "screening_handoff": {
+            "type": "boolean",
+            "required": false,
+            "example": false,
+            "note": "Complex searches keep only objective constraints in SQL and return the subjective ones as metadata.screening_criteria for a downstream screening step."
+          }
+        },
+        "note": "Search companies in plain language, across your network or globally, to build account and investor target lists. By default this searches only companies connected to your network; pass scope global to search everyone. Results carry relevance scores and connection strength. Complex searches usually take 20 to 60 seconds; wait rather than retry. Streaming (stream) is not accepted by this tool."
+      },
+      "body_allowlist": true,
+      "test_request": {
+        "body": {
+          "prompt": "Stripe",
+          "scope": "global",
+          "limit": 1
+        }
+      },
+      "capability": "companies.search",
+      "capability_description": "Search companies by industry, size or tech \u2014 account lists for lead generation",
+      "platform": "companies",
+      "platform_label": "Company data",
+      "score": 0.0,
+      "observed": null
+    },
+    {
+      "id": "village.people.enrich",
+      "provider": "village",
+      "provider_display": "Village.ai",
+      "name": "Enrich a person by LinkedIn URL: title, company, location",
+      "summary": "Get detailed profile information for a person.",
+      "method": "POST",
+      "path": "/v2/people/enrich",
+      "scope": "any_account",
+      "tier": "core",
+      "kind": "data",
+      "domain": "contacts",
+      "call_template": "treg call village.people.enrich --method POST --data '{\"linkedin_url\":\"https://www.linkedin.com/in/satyanadella\"}'",
+      "cost": {
+        "type": "per_success",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "docs",
+        "source_url": "https://docs.village.ai/api-reference/people/enrich-person",
+        "checked": "2026-10-09",
+        "confidence": "documented",
+        "note": "Cached lookups are free. Credits are used only for a real-time fetch that returns data; a fetch that finds nothing is free.",
+        "usd": 0.02
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": {
+        "status": 404,
+        "means": "Village could not find this person, even with a live fetch. Nothing was charged."
+      },
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": null,
+      "added": "2026-10-20",
+      "docs_url": "https://docs.village.ai/api-reference/people/enrich-person",
+      "has_example": false,
+      "input": {
+        "bodyType": "json",
+        "body": {
+          "linkedin_url": {
+            "type": "string",
+            "required": false,
+            "example": "https://linkedin.com/in/johndoe",
+            "note": "LinkedIn person profile URL. Send this or url."
+          },
+          "url": {
+            "type": "string",
+            "required": false,
+            "example": "https://linkedin.com/in/johndoe",
+            "note": "Generic URL (auto-detected). Send this or linkedin_url."
+          },
+          "mode": {
+            "type": "string",
+            "required": false,
+            "default": "cached_first",
+            "enum": [
+              "cached_first",
+              "cached_only",
+              "realtime_only"
+            ],
+            "example": "cached_first",
+            "note": "cached_first returns the profile Village holds when it is recent and otherwise fetches it live. realtime_only always fetches live. cached_only never fetches and is free; village.people.enrich.stored is that tier."
+          }
+        },
+        "note": "One of linkedin_url or url is required. Returns full name, job title or headline, current company, location, profile photo URL and LinkedIn URL."
+      },
+      "test_request": {
+        "body": {
+          "linkedin_url": "https://www.linkedin.com/in/satyanadella"
+        }
+      },
+      "capability": "people.enrich",
+      "capability_description": "Fill in a person's profile from a LinkedIn URL or other identifier you already hold \u2014 job title, employer, seniority, location",
+      "platform": "people",
+      "platform_label": "People & contact data",
+      "score": 0.0,
+      "observed": null
+    },
+    {
+      "id": "village.people.enrich.stored",
+      "provider": "village",
+      "provider_display": "Village.ai",
+      "name": "Person profile by LinkedIn URL, free cached lookup",
+      "summary": "Get detailed profile information for a person.",
+      "method": "POST",
+      "path": "/v2/people/enrich",
+      "scope": "any_account",
+      "tier": "core",
+      "kind": "data",
+      "domain": "contacts",
+      "call_template": "treg call village.people.enrich.stored --method POST --data '{\"linkedin_url\":\"https://www.linkedin.com/in/satyanadella\",\"mode\":\"cached_only\"}'",
+      "cost": {
+        "type": "free",
+        "value": 0,
+        "currency": "USD",
+        "unit": "call",
+        "source": "docs",
+        "source_url": "https://docs.village.ai/api-reference/people/enrich-person",
+        "checked": "2026-10-09",
+        "confidence": "documented",
+        "note": "Never charged: this tier never fetches live.",
+        "usd": 0.0
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": {
+        "status": 404,
+        "means": "This person is not in the cache. Nothing was charged; village.people.enrich can fetch the profile live."
+      },
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": null,
+      "added": "2026-10-20",
+      "docs_url": "https://docs.village.ai/api-reference/people/enrich-person",
+      "has_example": false,
+      "input": {
+        "bodyType": "json",
+        "body": {
+          "linkedin_url": {
+            "type": "string",
+            "required": false,
+            "example": "https://linkedin.com/in/johndoe",
+            "note": "LinkedIn person profile URL. Send this or url."
+          },
+          "url": {
+            "type": "string",
+            "required": false,
+            "example": "https://linkedin.com/in/johndoe",
+            "note": "Generic URL (auto-detected). Send this or linkedin_url."
+          },
+          "mode": {
+            "type": "string",
+            "required": true,
+            "enum": [
+              "cached_only"
+            ],
+            "note": "Fixed to cached_only: answer from the cache only, never fetch live."
+          }
+        },
+        "note": "One of linkedin_url or url is required. Returns the same profile as village.people.enrich from the cache only, for free. A person not in the cache answers 404."
+      },
+      "body_allowlist": true,
+      "test_request": {
+        "body": {
+          "linkedin_url": "https://www.linkedin.com/in/satyanadella",
+          "mode": "cached_only"
+        }
+      },
+      "capability": "people.enrich",
+      "capability_description": "Fill in a person's profile from a LinkedIn URL or other identifier you already hold \u2014 job title, employer, seniority, location",
+      "platform": "people",
+      "platform_label": "People & contact data",
+      "score": 0.0,
+      "observed": null
+    },
+    {
+      "id": "village.companies.enrich",
+      "provider": "village",
+      "provider_display": "Village.ai",
+      "name": "Enrich a company by domain or URL: headcount, industry",
+      "summary": "Get detailed information about a company.",
+      "method": "POST",
+      "path": "/v2/companies/enrich",
+      "scope": "any_account",
+      "tier": "core",
+      "kind": "data",
+      "domain": "companies",
+      "call_template": "treg call village.companies.enrich --method POST --data '{\"domain\":\"stripe.com\"}'",
+      "cost": {
+        "type": "per_success",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "docs",
+        "source_url": "https://docs.village.ai/api-reference/companies/enrich-company",
+        "checked": "2026-10-09",
+        "confidence": "documented",
+        "note": "Cached lookups are free. Credits are used only for a real-time fetch that returns data; a fetch that finds nothing is free.",
+        "usd": 0.02
+      },
+      "async": null,
+      "platform_eligible": true,
+      "platform_blocked": null,
+      "miss": null,
+      "status": null,
+      "status_note": null,
+      "superseded_by": null,
+      "verified": null,
+      "added": "2026-10-20",
+      "docs_url": "https://docs.village.ai/api-reference/companies/enrich-company",
+      "has_example": false,
+      "input": {
+        "bodyType": "json",
+        "body": {
+          "domain": {
+            "type": "string",
+            "required": false,
+            "example": "acme.com",
+            "note": "Company domain (normalized, without www prefix). Send one of domain, linkedin_url or url."
+          },
+          "linkedin_url": {
+            "type": "string",
+            "required": false,
+            "example": "https://linkedin.com/company/acme-corp",
+            "note": "LinkedIn company page URL."
+          },
+          "url": {
+            "type": "string",
+            "required": false,
+            "note": "Generic URL (auto-detected)."
+          },
+          "mode": {
+            "type": "string",
+            "required": false,
+            "default": "cached_first",
+            "enum": [
+              "cached_first",
+              "cached_only",
+              "realtime_only"
+            ],
+            "example": "cached_first",
+            "note": "cached_first returns the company Village holds when it is recent and otherwise fetches it live. realtime_only always fetches live. cached_only never fetches and is free; village.companies.enrich.stored is that tier."
+          }
+        },
+        "note": "One of domain, linkedin_url or url is required. Returns company name, website, LinkedIn URL, logo, employee count, industry, founded year and description."
+      },
+      "test_request": {
+        "body": {
+          "domain": "stripe.com"
+        }
+      },
+      "capability": "companies.enrich",
+      "capability_description": "Enrich a company from its domain or name",
+      "platform": "companies",
+      "platform_label": "Company data",
+      "score": 0.0,
+      "observed": null
+    }
+  ],
+  "hints": [
+    "treg catalog get village.people.search   # params, cost and an example response",
+    "337 more \u2014 raise limit (max 100)"
+  ],
+  "sort": "newest",
+  "added_within_days": 30
+}

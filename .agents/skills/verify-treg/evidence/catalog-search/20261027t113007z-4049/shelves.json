@@ -1,0 +1,3364 @@
+{
+  "platforms": [
+    {
+      "slug": "douyin",
+      "label": "Douyin (TikTok China)",
+      "category": "Social",
+      "featured": null,
+      "summary": "Profiles, videos, comments, search, billboards and live data \u2014 the deepest platform here.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "capabilities": 49,
+      "endpoints": 286,
+      "verified": 177,
+      "providers": [
+        "justoneapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "people",
+      "label": "People & contact data",
+      "category": "Enrichment",
+      "featured": 2,
+      "summary": "Enrich people and find or verify work contact details \u2014 role, company, email, phone.",
+      "price_from": {
+        "type": "per_result",
+        "value": 0.02,
+        "currency": "credit",
+        "per": 1,
+        "unit": "result",
+        "source": "docs",
+        "source_url": "https://api-doc.icypeas.com/how-works/credit-cost",
+        "checked": "2026-08-20",
+        "confidence": "documented",
+        "note": "0.02 credit per row returned \u2014 100 results = 2 credits. `pagination.size` (max 200) sets the bill",
+        "usd": 0.00038
+      },
+      "capabilities": 59,
+      "endpoints": 258,
+      "verified": 200,
+      "providers": [
+        "aiark",
+        "anyapi",
+        "apollo",
+        "aviato",
+        "blitzapi",
+        "bounceban",
+        "companyenrich",
+        "contactout",
+        "coresignal",
+        "crunchbase",
+        "crustdata",
+        "datagma",
+        "diffbot",
+        "dropleads",
+        "enrichlayer",
+        "exa",
+        "fiber-ai",
+        "findymail",
+        "getleadsio",
+        "harvestapi",
+        "hlrlookup",
+        "hunter",
+        "icypeas",
+        "leadmagic",
+        "leadsforge",
+        "limadata",
+        "lusha",
+        "millionverifier",
+        "moltsets",
+        "oceanio",
+        "parallel",
+        "pdl",
+        "prospeo",
+        "quickenrich",
+        "scrubby",
+        "sixtyfour",
+        "sumble",
+        "tomba",
+        "trestleiq",
+        "trykitt",
+        "village",
+        "wiza",
+        "zerobounce"
+      ]
+    },
+    {
+      "slug": "web",
+      "label": "Open web & SEO data",
+      "category": "SEO/AEO",
+      "featured": 2,
+      "summary": "Search, extract and crawl the open web, plus backlinks, referring domains and authority metrics.",
+      "price_from": {
+        "type": "per_result",
+        "value": 1,
+        "currency": "credit",
+        "per": 10000,
+        "unit": "character",
+        "source": "docs",
+        "source_url": "https://www.diffbot.com/pricing/",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "1 credit per 10,000 characters of input (document cap 100,000 chars; request cap 1,000,000 chars) \u2014 scales with input length, no single fixed per-call figure to record",
+        "usd": 1.2e-07
+      },
+      "capabilities": 50,
+      "endpoints": 234,
+      "verified": 172,
+      "providers": [
+        "anyapi",
+        "apify",
+        "branddev",
+        "brightdata",
+        "crawl4ai",
+        "dataforseo",
+        "diffbot",
+        "exa",
+        "firecrawl",
+        "justoneapi",
+        "keenable",
+        "limadata",
+        "linkup",
+        "litescrape",
+        "majestic",
+        "moz",
+        "octen",
+        "olostep",
+        "parallel",
+        "perplexity",
+        "scrapegraphai",
+        "search1api",
+        "semrush",
+        "seranking",
+        "serper",
+        "serpstat",
+        "spidercloud",
+        "tavily",
+        "tikhub",
+        "tinyfish",
+        "tomba",
+        "valyu",
+        "you"
+      ]
+    },
+    {
+      "slug": "companies",
+      "label": "Company data",
+      "category": "Enrichment",
+      "featured": 1,
+      "summary": "Enrich and search companies \u2014 firmographics, funding, tech stack, employees.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 50,
+        "unit": "row",
+        "source": "docs",
+        "source_url": "https://tomba.io/pricing",
+        "checked": "2026-08-20",
+        "confidence": "documented",
+        "note": "rate card: '1 credit reveals up to 50 companies'. /v1/logs reported cost=1 for the first live call and cost=0 for the replay",
+        "usd": 0.000178
+      },
+      "capabilities": 96,
+      "endpoints": 233,
+      "verified": 190,
+      "providers": [
+        "aiark",
+        "akta",
+        "apollo",
+        "aviato",
+        "blitzapi",
+        "branddev",
+        "brightdata",
+        "companyenrich",
+        "contactout",
+        "coresignal",
+        "crunchbase",
+        "crustdata",
+        "datagma",
+        "diffbot",
+        "dropleads",
+        "enrichlayer",
+        "exa",
+        "fiber-ai",
+        "findymail",
+        "getleadsio",
+        "hunter",
+        "icypeas",
+        "leadmagic",
+        "leadsforge",
+        "limadata",
+        "lusha",
+        "moltsets",
+        "oceanio",
+        "openmart",
+        "parallel",
+        "pdl",
+        "predictleads",
+        "prospeo",
+        "quickenrich",
+        "sixtyfour",
+        "sumble",
+        "thecompaniesapi",
+        "tomba",
+        "village",
+        "wiza",
+        "zerobounce"
+      ]
+    },
+    {
+      "slug": "tiktok",
+      "label": "TikTok",
+      "category": "Social",
+      "featured": 1,
+      "summary": "Profiles, videos, comments, hashtags and search \u2014 plus your own account via OAuth.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.35,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.35 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00035
+      },
+      "capabilities": 42,
+      "endpoints": 192,
+      "verified": 143,
+      "providers": [
+        "anyapi",
+        "brightdata",
+        "crawl4ai",
+        "justoneapi",
+        "scrapecreators",
+        "tikhub",
+        "tiktok"
+      ]
+    },
+    {
+      "slug": "instagram",
+      "label": "Instagram",
+      "category": "Social",
+      "featured": 2,
+      "summary": "Public profiles, posts, comments, reels and hashtag data from Instagram.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.7,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.7 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.0007
+      },
+      "capabilities": 35,
+      "endpoints": 187,
+      "verified": 143,
+      "providers": [
+        "anyapi",
+        "brightdata",
+        "crawl4ai",
+        "instagram",
+        "justoneapi",
+        "scrapecreators",
+        "serpapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "youtube",
+      "label": "YouTube",
+      "category": "Social",
+      "featured": 3,
+      "summary": "Video metadata, comments, captions, channel uploads and search from YouTube.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.9,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.9 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.0009
+      },
+      "capabilities": 19,
+      "endpoints": 168,
+      "verified": 74,
+      "providers": [
+        "anyapi",
+        "brightdata",
+        "crawl4ai",
+        "dataforseo",
+        "justoneapi",
+        "scrapecreators",
+        "serpapi",
+        "tikhub",
+        "youtube"
+      ]
+    },
+    {
+      "slug": "google",
+      "label": "Google Keyword Data",
+      "category": "SEO/AEO",
+      "featured": 1,
+      "summary": "Organic rankings, keyword volume and full SERP data from Google.",
+      "price_from": {
+        "type": "per_call",
+        "value": 0.00012,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "confidence": "verified",
+        "checked": "2026-07-28",
+        "note": "price observed at live verification (provider-reported charge)",
+        "usd": 0.00012
+      },
+      "capabilities": 30,
+      "endpoints": 167,
+      "verified": 147,
+      "providers": [
+        "adyntel",
+        "anyapi",
+        "apify",
+        "cloro",
+        "crawl4ai",
+        "dataforseo",
+        "google-ads",
+        "limadata",
+        "litescrape",
+        "scrapecreators",
+        "semrush",
+        "seranking",
+        "serpapi",
+        "serper",
+        "serpstat",
+        "spyfu"
+      ]
+    },
+    {
+      "slug": "x",
+      "label": "X (Twitter)",
+      "category": "Social",
+      "featured": 4,
+      "summary": "Public profiles, posts and search \u2014 plus your own account via OAuth.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.0001,
+        "currency": "USD",
+        "unit": "call",
+        "reported_charge": {
+          "path": "costUsd",
+          "unit": "usd"
+        },
+        "source": "rate_card_api",
+        "source_url": "https://api.getanyapi.com/v1/apis/twitter.community",
+        "checked": "2026-09-11",
+        "confidence": "verified",
+        "usd": 0.0001
+      },
+      "capabilities": 96,
+      "endpoints": 167,
+      "verified": 40,
+      "providers": [
+        "anyapi",
+        "brightdata",
+        "crawl4ai",
+        "justoneapi",
+        "scrapecreators",
+        "tikhub",
+        "x"
+      ]
+    },
+    {
+      "slug": "linkedin",
+      "label": "LinkedIn",
+      "category": "Social",
+      "featured": 5,
+      "summary": "People, companies, posts, comments and engagement data from LinkedIn.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.45,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.45 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00045
+      },
+      "capabilities": 38,
+      "endpoints": 117,
+      "verified": 100,
+      "providers": [
+        "adyntel",
+        "anyapi",
+        "apify",
+        "brightdata",
+        "contactout",
+        "crawl4ai",
+        "enrichlayer",
+        "fetchinio",
+        "fiber-ai",
+        "harvestapi",
+        "justoneapi",
+        "leadsforge",
+        "limadata",
+        "linkedin",
+        "moltsets",
+        "scrapecreators",
+        "tikhub",
+        "village"
+      ]
+    },
+    {
+      "slug": "google-tag-manager",
+      "label": "Google Tag Manager",
+      "category": "Advertising",
+      "featured": 3,
+      "summary": "Audit and manage tags, triggers, variables, workspaces and published container versions in your own GTM account.",
+      "price_from": null,
+      "capabilities": 8,
+      "endpoints": 106,
+      "verified": 0,
+      "providers": [
+        "google-tag-manager"
+      ]
+    },
+    {
+      "slug": "video-gen",
+      "label": "Video generation",
+      "category": "AI generation",
+      "featured": null,
+      "summary": "Text-to-video and image-to-video across models, with prices side by side.",
+      "price_from": {
+        "type": "per_success",
+        "table": [
+          {
+            "when": {
+              "body.model": "MiniMax-Hailuo-02",
+              "body.resolution": "768P",
+              "body.duration": 6
+            },
+            "value": 0.28
+          },
+          {
+            "when": {
+              "body.model": "MiniMax-Hailuo-02",
+              "body.resolution": "768P",
+              "body.duration": 10
+            },
+            "value": 0.56
+          },
+          {
+            "when": {
+              "body.model": "MiniMax-Hailuo-02",
+              "body.resolution": "1080P",
+              "body.duration": 6
+            },
+            "value": 0.49
+          },
+          {
+            "when": {
+              "body.model": "MiniMax-Hailuo-2.3",
+              "body.resolution": "768P",
+              "body.duration": 6
+            },
+            "value": 0.28
+          },
+          {
+            "when": {
+              "body.model": "MiniMax-Hailuo-2.3",
+              "body.resolution": "768P",
+              "body.duration": 10
+            },
+            "value": 0.56
+          },
+          {
+            "when": {
+              "body.model": "MiniMax-Hailuo-2.3",
+              "body.resolution": "1080P",
+              "body.duration": 6
+            },
+            "value": 0.49
+          }
+        ],
+        "fallback": {
+          "value": 0.56,
+          "note": "The highest documented Hailuo text-to-video combination is a 10-second 768P video; unmatched combinations reserve this explicit upper bound."
+        },
+        "currency": "USD",
+        "settle": "table",
+        "source": "docs",
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo#video",
+        "checked": "2026-09-01",
+        "confidence": "documented",
+        "table_min": 0.28,
+        "usd": 0.56,
+        "usd_min": 0.28
+      },
+      "capabilities": 9,
+      "endpoints": 103,
+      "verified": 9,
+      "providers": [
+        "minimax",
+        "openrouter",
+        "piapi",
+        "reapi",
+        "replicate"
+      ]
+    },
+    {
+      "slug": "facebook",
+      "label": "Facebook",
+      "category": "Social",
+      "featured": null,
+      "summary": "Public pages and posts \u2014 plus your own Pages' insights and publishing via official OAuth.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.0012,
+        "currency": "USD",
+        "unit": "call",
+        "reported_charge": {
+          "path": "costUsd",
+          "unit": "usd"
+        },
+        "source": "observed",
+        "source_url": "https://api.getanyapi.com/v1/apis/facebook.ad_details",
+        "checked": "2026-09-11",
+        "confidence": "verified",
+        "usd": 0.0012
+      },
+      "capabilities": 44,
+      "endpoints": 87,
+      "verified": 48,
+      "providers": [
+        "anyapi",
+        "brightdata",
+        "crawl4ai",
+        "facebook",
+        "justoneapi",
+        "scrapecreators",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "image-gen",
+      "label": "Image generation",
+      "category": "AI generation",
+      "featured": null,
+      "summary": "Text-to-image and prompt-based image editing across models.",
+      "price_from": {
+        "type": "per_success",
+        "table": [
+          {
+            "when": {
+              "body.input.num_outputs": 1
+            },
+            "value": 0.003
+          },
+          {
+            "when": {
+              "body.input.num_outputs": 2
+            },
+            "value": 0.006
+          },
+          {
+            "when": {
+              "body.input.num_outputs": 3
+            },
+            "value": 0.009
+          },
+          {
+            "when": {
+              "body.input.num_outputs": 4
+            },
+            "value": 0.012
+          }
+        ],
+        "fallback": {
+          "value": 0.012,
+          "note": "Four outputs at $0.003 each are the explicit request maximum."
+        },
+        "currency": "USD",
+        "settle": "table",
+        "source": "docs",
+        "source_url": "https://replicate.com/black-forest-labs/flux-schnell",
+        "checked": "2026-09-01",
+        "confidence": "documented",
+        "note": "Replicate lists FLUX Schnell at $3 per thousand output images.",
+        "table_min": 0.003,
+        "usd": 0.012,
+        "usd_min": 0.003
+      },
+      "capabilities": 7,
+      "endpoints": 73,
+      "verified": 14,
+      "providers": [
+        "google-ai",
+        "minimax",
+        "piapi",
+        "reapi",
+        "replicate"
+      ]
+    },
+    {
+      "slug": "weibo",
+      "label": "Weibo",
+      "category": "Social",
+      "featured": null,
+      "summary": "Users, posts, comments, fans and hot-search boards on Weibo.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "capabilities": 28,
+      "endpoints": 70,
+      "verified": 68,
+      "providers": [
+        "apify",
+        "justoneapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "stocks",
+      "label": "Stock Market Data",
+      "category": "Market data",
+      "featured": 2,
+      "summary": "End-of-day and intraday stock prices, tickers, splits and dividends across global exchanges.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 32,
+      "endpoints": 57,
+      "verified": 52,
+      "providers": [
+        "crawl4ai",
+        "eodhd",
+        "financialdatasets",
+        "finnhub",
+        "marketstack",
+        "polygon",
+        "tiingo",
+        "twelvedata",
+        "valyu",
+        "you"
+      ]
+    },
+    {
+      "slug": "zhihu",
+      "label": "Zhihu",
+      "category": "Social",
+      "featured": null,
+      "summary": "Questions, answers, columns, user activity and search on Zhihu.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "capabilities": 17,
+      "endpoints": 56,
+      "verified": 21,
+      "providers": [
+        "justoneapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "reddit",
+      "label": "Reddit",
+      "category": "Social",
+      "featured": 6,
+      "summary": "Posts, comments and search across subreddits.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.0002,
+        "currency": "USD",
+        "unit": "call",
+        "reported_charge": {
+          "path": "costUsd",
+          "unit": "usd"
+        },
+        "source": "observed",
+        "source_url": "https://api.getanyapi.com/v1/apis/reddit.trending_posts",
+        "checked": "2026-09-11",
+        "confidence": "verified",
+        "usd": 0.0002
+      },
+      "capabilities": 14,
+      "endpoints": 50,
+      "verified": 43,
+      "providers": [
+        "anyapi",
+        "brightdata",
+        "crawl4ai",
+        "justoneapi",
+        "scrapecreators",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "bilibili",
+      "label": "Bilibili",
+      "category": "Social",
+      "featured": null,
+      "summary": "Videos, creators, comments, captions and danmu from Bilibili.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "capabilities": 22,
+      "endpoints": 49,
+      "verified": 46,
+      "providers": [
+        "justoneapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "google-ads",
+      "label": "Google Ads",
+      "category": "Advertising",
+      "featured": 1,
+      "summary": "Query your own Google Ads accounts with GAQL, and manage campaign budgets.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "capabilities": 44,
+      "endpoints": 49,
+      "verified": 6,
+      "providers": [
+        "google-ads",
+        "leadmagic",
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "douyin-xingtu",
+      "label": "Xingtu \u2014 Douyin's creator marketplace (influencer rates, audience data)",
+      "category": "Advertising",
+      "featured": null,
+      "summary": "Influencer rates, audience breakdowns and campaign performance.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "capabilities": 28,
+      "endpoints": 47,
+      "verified": 47,
+      "providers": [
+        "justoneapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "meta-ads",
+      "label": "Meta Ads (Facebook & Instagram)",
+      "category": "Advertising",
+      "featured": 2,
+      "summary": "Your Meta ad accounts, campaigns and insights across Facebook and Instagram.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.0012,
+        "currency": "USD",
+        "unit": "call",
+        "reported_charge": {
+          "path": "costUsd",
+          "unit": "usd"
+        },
+        "source": "observed",
+        "source_url": "https://api.getanyapi.com/v1/apis/facebook.company_ads",
+        "checked": "2026-10-02",
+        "confidence": "verified",
+        "usd": 0.0012
+      },
+      "capabilities": 7,
+      "endpoints": 47,
+      "verified": 10,
+      "providers": [
+        "adyntel",
+        "anyapi",
+        "apify",
+        "crawl4ai",
+        "leadmagic",
+        "meta-ad-library",
+        "meta-ads",
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "kuaishou",
+      "label": "Kuaishou",
+      "category": "Social",
+      "featured": null,
+      "summary": "Users, videos, comments and search on Kuaishou.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "capabilities": 24,
+      "endpoints": 46,
+      "verified": 42,
+      "providers": [
+        "justoneapi",
+        "scrapecreators",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "google-business",
+      "label": "Google Business Profile",
+      "category": "SEO/AEO",
+      "featured": 5,
+      "summary": "Your Google Business Profile locations and reviews \u2014 read them and reply to them.",
+      "price_from": null,
+      "capabilities": 18,
+      "endpoints": 43,
+      "verified": 0,
+      "providers": [
+        "google-business-profile"
+      ]
+    },
+    {
+      "slug": "xiaohongshu",
+      "label": "Xiaohongshu (RED)",
+      "category": "Social",
+      "featured": null,
+      "summary": "Notes, users, comments, topics and keyword search on Xiaohongshu (RED).",
+      "price_from": {
+        "type": "per_result",
+        "value": 0.0015,
+        "currency": "USD",
+        "per": 1,
+        "unit": "record",
+        "source": "docs",
+        "source_url": "https://brightdata.com/pricing",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "$1.50 per 1000 records delivered, pay-per-success \u2014 the general Web Scraper API rate documented for this product family; some datasets carry different published rates, confirm on brightdata.com/pricing before volume use",
+        "usd": 0.0015
+      },
+      "capabilities": 20,
+      "endpoints": 39,
+      "verified": 38,
+      "providers": [
+        "brightdata",
+        "justoneapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "google-analytics",
+      "label": "Google Analytics (GA4)",
+      "category": "SEO/AEO",
+      "featured": 4,
+      "summary": "Traffic and behavior reports from your own GA4 properties, including realtime visitors.",
+      "price_from": null,
+      "capabilities": 31,
+      "endpoints": 33,
+      "verified": 3,
+      "providers": [
+        "google-analytics"
+      ]
+    },
+    {
+      "slug": "ai-search",
+      "label": "AI Visibility / AEO",
+      "category": "SEO/AEO",
+      "featured": 6,
+      "summary": "Aggregated brand-mention and keyword data across AI answer engines.",
+      "price_from": {
+        "type": "per_call",
+        "value": 6,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "docs",
+        "source_url": "https://cloro.dev/docs/guides/providers",
+        "checked": "2026-09-05",
+        "confidence": "documented",
+        "modifiers": {
+          "state": {
+            "location": "body",
+            "when": "present",
+            "add_credits": 2
+          }
+        },
+        "note": "4 base + the 2-credit sync surcharge. Every include flag on this endpoint is free \u2014 only `state` moves the price, by 2. A failed extraction is not charged.",
+        "usd": 0.0024
+      },
+      "capabilities": 20,
+      "endpoints": 29,
+      "verified": 27,
+      "providers": [
+        "cloro",
+        "crawl4ai",
+        "dataforseo",
+        "justoneapi",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "wechat-mp",
+      "label": "WeChat Official Accounts (\u516c\u4f17\u53f7 articles)",
+      "category": "Social",
+      "featured": null,
+      "summary": "Official-account articles, metrics, comments and search across WeChat \u516c\u4f17\u53f7.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.01,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.01
+      },
+      "capabilities": 10,
+      "endpoints": 28,
+      "verified": 24,
+      "providers": [
+        "justoneapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "tiktok-shop",
+      "label": "TikTok Shop",
+      "category": "E-commerce",
+      "featured": 4,
+      "summary": "Product listings and search from TikTok Shop.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.9,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.9 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.0009
+      },
+      "capabilities": 6,
+      "endpoints": 26,
+      "verified": 20,
+      "providers": [
+        "anyapi",
+        "apify",
+        "brightdata",
+        "crawl4ai",
+        "justoneapi",
+        "scrapecreators",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "wechat-channels",
+      "label": "WeChat Channels (\u89c6\u9891\u53f7 video)",
+      "category": "Social",
+      "featured": null,
+      "summary": "\u89c6\u9891\u53f7 videos, comments, metrics and account search from WeChat Channels.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.01,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.01
+      },
+      "capabilities": 12,
+      "endpoints": 26,
+      "verified": 22,
+      "providers": [
+        "justoneapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "xiaohongshu-pugongying",
+      "label": "Pugongying \u2014 Xiaohongshu's creator marketplace",
+      "category": "Advertising",
+      "featured": null,
+      "summary": "Creator pricing, audience and note performance from Xiaohongshu's creator marketplace.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.02,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.02
+      },
+      "capabilities": 12,
+      "endpoints": 26,
+      "verified": 16,
+      "providers": [
+        "justoneapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "amazon",
+      "label": "Amazon",
+      "category": "E-commerce",
+      "featured": 1,
+      "summary": "Products, best-sellers, reviews, categories and search results from Amazon.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 6,
+      "endpoints": 24,
+      "verified": 19,
+      "providers": [
+        "brightdata",
+        "crawl4ai",
+        "dataforseo",
+        "justoneapi",
+        "scrapecreators",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "tiktok-ads",
+      "label": "TikTok Ads",
+      "category": "Advertising",
+      "featured": null,
+      "summary": "Your TikTok Ads campaigns and reporting, plus TikTok's public ad library.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "capabilities": 9,
+      "endpoints": 20,
+      "verified": 2,
+      "providers": [
+        "adyntel",
+        "apify",
+        "scrapecreators",
+        "tikhub",
+        "tiktok-ads"
+      ]
+    },
+    {
+      "slug": "imdb",
+      "label": "IMDb",
+      "category": "Reviews & Apps",
+      "featured": 4,
+      "summary": "Titles, ratings, cast, box office and reviews from IMDb.",
+      "price_from": {
+        "type": "per_result",
+        "value": 0.0015,
+        "currency": "USD",
+        "per": 1,
+        "unit": "record",
+        "source": "docs",
+        "source_url": "https://brightdata.com/pricing",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "$1.50 per 1000 records delivered, pay-per-success \u2014 the general Web Scraper API rate documented for this product family; some datasets carry different published rates, confirm on brightdata.com/pricing before volume use",
+        "usd": 0.0015
+      },
+      "capabilities": 13,
+      "endpoints": 19,
+      "verified": 18,
+      "providers": [
+        "brightdata",
+        "justoneapi"
+      ]
+    },
+    {
+      "slug": "threads",
+      "label": "Threads",
+      "category": "Social",
+      "featured": null,
+      "summary": "Public profiles and posts from Threads.",
+      "price_from": {
+        "type": "per_result",
+        "value": 0.0015,
+        "currency": "USD",
+        "per": 1,
+        "unit": "record",
+        "source": "docs",
+        "source_url": "https://brightdata.com/pricing",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "$1.50 per 1000 records delivered, pay-per-success \u2014 the general Web Scraper API rate documented for this product family; some datasets carry different published rates, confirm on brightdata.com/pricing before volume use",
+        "usd": 0.0015
+      },
+      "capabilities": 8,
+      "endpoints": 18,
+      "verified": 12,
+      "providers": [
+        "brightdata",
+        "crawl4ai",
+        "scrapecreators",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "app-store",
+      "label": "Apple App Store",
+      "category": "Reviews & Apps",
+      "featured": 1,
+      "summary": "App listings, rankings and reviews from the Apple App Store.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 4,
+      "endpoints": 17,
+      "verified": 15,
+      "providers": [
+        "brightdata",
+        "crawl4ai",
+        "dataforseo",
+        "litescrape",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "pipixia",
+      "label": "Pipixia",
+      "category": "Social",
+      "featured": null,
+      "summary": "Posts, hashtags and feeds from Pipixia.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "capabilities": 14,
+      "endpoints": 17,
+      "verified": 17,
+      "providers": [
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "bing",
+      "label": "Bing Keyword Data",
+      "category": "SEO/AEO",
+      "featured": null,
+      "summary": "Organic results and rankings from Bing.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.00015,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "docs",
+        "source_url": "https://litescrape.com/pricing",
+        "checked": "2026-09-29",
+        "confidence": "verified",
+        "note": "One successful API response consumes one prepaid call; failures are free.",
+        "usd": 0.00015
+      },
+      "capabilities": 12,
+      "endpoints": 16,
+      "verified": 16,
+      "providers": [
+        "dataforseo",
+        "litescrape",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "lemon8",
+      "label": "Lemon8",
+      "category": "Social",
+      "featured": null,
+      "summary": "Discover-feed content, posts and hashtags from Lemon8.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "capabilities": 10,
+      "endpoints": 16,
+      "verified": 16,
+      "providers": [
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "google-play",
+      "label": "Google Play",
+      "category": "Reviews & Apps",
+      "featured": 2,
+      "summary": "App listings, rankings and reviews from Google Play.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 7,
+      "endpoints": 15,
+      "verified": 14,
+      "providers": [
+        "brightdata",
+        "crawl4ai",
+        "dataforseo",
+        "litescrape",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "crypto",
+      "label": "Crypto Market Data",
+      "category": "Market data",
+      "featured": 1,
+      "summary": "Live and historical prices, market caps, trends and exchanges across 17,000+ coins.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.25,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.25 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00025
+      },
+      "capabilities": 10,
+      "endpoints": 14,
+      "verified": 13,
+      "providers": [
+        "coingecko",
+        "crawl4ai",
+        "tiingo",
+        "valyu"
+      ]
+    },
+    {
+      "slug": "github",
+      "label": "GitHub",
+      "category": "Developer",
+      "featured": null,
+      "summary": "Public repos, users, contributions and trending pages from GitHub.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 12,
+      "endpoints": 14,
+      "verified": 4,
+      "providers": [
+        "crawl4ai",
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "creators",
+      "label": "Creators & influencers",
+      "category": "Enrichment",
+      "featured": 3,
+      "summary": "Find and enrich creators across Instagram, YouTube, TikTok, Twitch, X and OnlyFans \u2014 profile, audience, contact email, posts and lookalikes.",
+      "price_from": {
+        "type": "per_result",
+        "value": 0.01,
+        "currency": "credit",
+        "per": 1,
+        "unit": "result",
+        "source": "observed",
+        "source_url": "https://docs.influencers.club/guides/usage-limits",
+        "checked": "2026-08-21",
+        "confidence": "verified",
+        "reported_charge": {
+          "path": "credits_cost",
+          "unit": "credit"
+        },
+        "note": "0.01 credit per creator returned, 0 creators = 0 credits; 0.03 with return_filter_values=true. The response's credits_cost is the exact charge and settles the call, so the premium rider is billed as charged. OBSERVED 2026-08-21: limit=2 moved the meter 10.00 -> 9.98",
+        "usd": 0.00598
+      },
+      "capabilities": 9,
+      "endpoints": 13,
+      "verified": 12,
+      "providers": [
+        "exa",
+        "influencersclub",
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "taobao",
+      "label": "Taobao / Tmall",
+      "category": "E-commerce",
+      "featured": 2,
+      "summary": "Item details, shop listings, comments and search from Taobao and Tmall.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "CNY",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://www.justoneapi.com/",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "billed only on success (code 0); errors free",
+        "usd": 0.02214
+      },
+      "capabilities": 4,
+      "endpoints": 12,
+      "verified": 10,
+      "providers": [
+        "justoneapi"
+      ]
+    },
+    {
+      "slug": "toutiao",
+      "label": "Toutiao",
+      "category": "Social",
+      "featured": null,
+      "summary": "Articles, authors and search on Toutiao.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "capabilities": 5,
+      "endpoints": 10,
+      "verified": 8,
+      "providers": [
+        "justoneapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "jd",
+      "label": "JD.com",
+      "category": "E-commerce",
+      "featured": 3,
+      "summary": "Products, prices, comments and search from JD.com.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.12,
+        "currency": "CNY",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://www.justoneapi.com/",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "billed only on success (code 0); errors free",
+        "usd": 0.017712
+      },
+      "capabilities": 4,
+      "endpoints": 9,
+      "verified": 7,
+      "providers": [
+        "justoneapi"
+      ]
+    },
+    {
+      "slug": "telegram",
+      "label": "Telegram",
+      "category": "Community",
+      "featured": 2,
+      "summary": "Channel and chat data from Telegram.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.9,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.9 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.0009
+      },
+      "capabilities": 6,
+      "endpoints": 9,
+      "verified": 8,
+      "providers": [
+        "brightdata",
+        "crawl4ai",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "slack",
+      "label": "Slack",
+      "category": "Community",
+      "featured": 1,
+      "summary": "Read channels and post messages in your own Slack workspace via your bot token.",
+      "price_from": null,
+      "capabilities": 8,
+      "endpoints": 8,
+      "verified": 0,
+      "providers": [
+        "slack"
+      ]
+    },
+    {
+      "slug": "tripadvisor",
+      "label": "Tripadvisor",
+      "category": "Reviews & Apps",
+      "featured": null,
+      "summary": "Hotels, restaurants and reviews from Tripadvisor.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.00015,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "docs",
+        "source_url": "https://litescrape.com/pricing",
+        "checked": "2026-09-29",
+        "confidence": "verified",
+        "note": "One successful API response consumes one prepaid call; failures are free.",
+        "usd": 0.00015
+      },
+      "capabilities": 5,
+      "endpoints": 7,
+      "verified": 6,
+      "providers": [
+        "brightdata",
+        "dataforseo",
+        "litescrape",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "xigua",
+      "label": "Xigua Video",
+      "category": "Social",
+      "featured": null,
+      "summary": "Video and creator data from Xigua Video.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.001,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.001
+      },
+      "capabilities": 6,
+      "endpoints": 7,
+      "verified": 6,
+      "providers": [
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "yelp",
+      "label": "Yelp",
+      "category": "Reviews & Apps",
+      "featured": null,
+      "summary": "Business listings and reviews from Yelp.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 3,
+      "endpoints": 7,
+      "verified": 4,
+      "providers": [
+        "brightdata",
+        "crawl4ai",
+        "litescrape",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "douban",
+      "label": "Douban (film, TV and book reviews)",
+      "category": "Reviews & Apps",
+      "featured": null,
+      "summary": "Movie, TV and book ratings and reviews from Douban.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.1,
+        "currency": "CNY",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://www.justoneapi.com/",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "billed only on success (code 0); errors free",
+        "usd": 0.01476
+      },
+      "capabilities": 6,
+      "endpoints": 6,
+      "verified": 6,
+      "providers": [
+        "justoneapi"
+      ]
+    },
+    {
+      "slug": "duckduckgo",
+      "label": "DuckDuckGo Search Results (SERP)",
+      "category": "SEO/AEO",
+      "featured": null,
+      "summary": "Organic results from DuckDuckGo.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.00015,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "docs",
+        "source_url": "https://litescrape.com/pricing",
+        "checked": "2026-09-29",
+        "confidence": "verified",
+        "note": "One successful API response consumes one prepaid call; failures are free.",
+        "usd": 0.00015
+      },
+      "capabilities": 3,
+      "endpoints": 6,
+      "verified": 6,
+      "providers": [
+        "litescrape",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "pinterest-ads",
+      "label": "Pinterest Ads",
+      "category": "Advertising",
+      "featured": null,
+      "summary": "Your Pinterest Ads campaigns, ad groups and analytics.",
+      "price_from": null,
+      "capabilities": 6,
+      "endpoints": 6,
+      "verified": 0,
+      "providers": [
+        "pinterest-ads"
+      ]
+    },
+    {
+      "slug": "qq-huxuan",
+      "label": "QQ Huxuan \u2014 Tencent's creator marketplace",
+      "category": "Advertising",
+      "featured": null,
+      "summary": "Creator and placement data from Tencent's Huxuan marketplace.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.3,
+        "currency": "CNY",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://www.justoneapi.com/",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "billed only on success (code 0); errors free",
+        "usd": 0.04428
+      },
+      "capabilities": 6,
+      "endpoints": 6,
+      "verified": 6,
+      "providers": [
+        "justoneapi"
+      ]
+    },
+    {
+      "slug": "search-console",
+      "label": "Google Search Console",
+      "category": "SEO/AEO",
+      "featured": 3,
+      "summary": "Your site's Google Search clicks, impressions, top queries and indexing.",
+      "price_from": null,
+      "capabilities": 4,
+      "endpoints": 6,
+      "verified": 4,
+      "providers": [
+        "google-search-console"
+      ]
+    },
+    {
+      "slug": "snapchat-ads",
+      "label": "Snapchat Ads",
+      "category": "Advertising",
+      "featured": null,
+      "summary": "Your Snapchat Ads campaigns and stats.",
+      "price_from": null,
+      "capabilities": 6,
+      "endpoints": 6,
+      "verified": 0,
+      "providers": [
+        "snapchat-ads"
+      ]
+    },
+    {
+      "slug": "spotify",
+      "label": "Spotify",
+      "category": "Social",
+      "featured": null,
+      "summary": "Public artists, albums, tracks, podcasts and search from Spotify.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "capabilities": 6,
+      "endpoints": 6,
+      "verified": 0,
+      "providers": [
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "walmart",
+      "label": "Walmart",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Product listings and search results from Walmart.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 4,
+      "endpoints": 6,
+      "verified": 4,
+      "providers": [
+        "brightdata",
+        "crawl4ai",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "douyin-shop",
+      "label": "Douyin e-commerce (product and shop data)",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Products, SKUs, shop listings and item comments from Douyin e-commerce.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.1,
+        "currency": "CNY",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://www.justoneapi.com/",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "billed only on success (code 0); errors free",
+        "usd": 0.01476
+      },
+      "capabilities": 5,
+      "endpoints": 5,
+      "verified": 5,
+      "providers": [
+        "justoneapi"
+      ]
+    },
+    {
+      "slug": "linkinbio",
+      "label": "Link-in-bio pages (Linktree, Komi, Link.me, Pillar\u2026)",
+      "category": "Social",
+      "featured": null,
+      "summary": "The links a creator lists on their link-in-bio page, across Linktree-style services.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "capabilities": 0,
+      "endpoints": 5,
+      "verified": 0,
+      "providers": [
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "pinterest",
+      "label": "Pinterest",
+      "category": "Social",
+      "featured": null,
+      "summary": "Public pins, boards and search results from Pinterest.",
+      "price_from": {
+        "type": "per_call",
+        "value": 0.00012,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "confidence": "verified",
+        "checked": "2026-07-28",
+        "note": "price observed at live verification (provider-reported charge)",
+        "usd": 0.00012
+      },
+      "capabilities": 4,
+      "endpoints": 5,
+      "verified": 1,
+      "providers": [
+        "dataforseo",
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "rumble",
+      "label": "Rumble",
+      "category": "Social",
+      "featured": null,
+      "summary": "Videos, channels, comments and transcripts from Rumble.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "capabilities": 5,
+      "endpoints": 5,
+      "verified": 0,
+      "providers": [
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "voice-gen",
+      "label": "Voice generation",
+      "category": "AI generation",
+      "featured": null,
+      "summary": "Text-to-speech across voice models, with prices side by side.",
+      "price_from": {
+        "type": "per_success",
+        "value": 15,
+        "currency": "USD",
+        "per": 1000000,
+        "unit": "utf8_byte",
+        "source": "docs",
+        "source_url": "https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits",
+        "checked": "2026-09-21",
+        "confidence": "documented",
+        "note": "Fish bills S2.1 Pro by UTF-8 input bytes.",
+        "display": {
+          "unit": "UTF-8 bytes",
+          "grouped": true
+        },
+        "usd": 1.5e-05,
+        "display_usd": 15.0,
+        "display_unit": "1M UTF-8 bytes",
+        "display_suffix": "",
+        "display_prefix": ""
+      },
+      "capabilities": 5,
+      "endpoints": 5,
+      "verified": 3,
+      "providers": [
+        "fishaudio",
+        "google-ai",
+        "minimax"
+      ]
+    },
+    {
+      "slug": "yahoo",
+      "label": "Yahoo Search Results (SERP)",
+      "category": "SEO/AEO",
+      "featured": null,
+      "summary": "Organic results and rankings from Yahoo.",
+      "price_from": {
+        "type": "per_call",
+        "value": 0.002,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "confidence": "verified",
+        "checked": "2026-07-28",
+        "note": "price observed at live verification (provider-reported charge)",
+        "usd": 0.002
+      },
+      "capabilities": 3,
+      "endpoints": 5,
+      "verified": 5,
+      "providers": [
+        "dataforseo",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "apple-music",
+      "label": "Apple Music",
+      "category": "Social",
+      "featured": null,
+      "summary": "Public artists, albums, tracks and search from Apple Music.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "capabilities": 0,
+      "endpoints": 4,
+      "verified": 0,
+      "providers": [
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "ebay",
+      "label": "eBay",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Product listings and search results from eBay.",
+      "price_from": {
+        "type": "per_success",
+        "value": 1.35,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 1.35 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00135
+      },
+      "capabilities": 2,
+      "endpoints": 4,
+      "verified": 3,
+      "providers": [
+        "brightdata",
+        "crawl4ai",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "microsoft-ads",
+      "label": "Microsoft Advertising (Bing Ads)",
+      "category": "Advertising",
+      "featured": null,
+      "summary": "Your Microsoft Advertising campaigns, spend and performance on the Bing network.",
+      "price_from": null,
+      "capabilities": 4,
+      "endpoints": 4,
+      "verified": 0,
+      "providers": [
+        "microsoft-ads"
+      ]
+    },
+    {
+      "slug": "trustpilot",
+      "label": "Trustpilot",
+      "category": "Reviews & Apps",
+      "featured": 3,
+      "summary": "Company profiles and reviews from Trustpilot.",
+      "price_from": {
+        "type": "per_success",
+        "value": 1.35,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 1.35 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00135
+      },
+      "capabilities": 2,
+      "endpoints": 4,
+      "verified": 3,
+      "providers": [
+        "brightdata",
+        "crawl4ai",
+        "dataforseo"
+      ]
+    },
+    {
+      "slug": "twitch",
+      "label": "Twitch",
+      "category": "Social",
+      "featured": null,
+      "summary": "Streamer profiles, videos, clips and schedules from Twitch.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "capabilities": 4,
+      "endpoints": 4,
+      "verified": 1,
+      "providers": [
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "wechat-search",
+      "label": "WeChat Search (\u641c\u4e00\u641c)",
+      "category": "Social",
+      "featured": null,
+      "summary": "WeChat \u641c\u4e00\u641c results and indexes.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.01,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://api.tikhub.io/api/v1/tikhub/user/get_all_endpoints_info",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.01
+      },
+      "capabilities": 4,
+      "endpoints": 4,
+      "verified": 4,
+      "providers": [
+        "justoneapi",
+        "tikhub"
+      ]
+    },
+    {
+      "slug": "baidu",
+      "label": "Baidu Search Results (SERP)",
+      "category": "SEO/AEO",
+      "featured": null,
+      "summary": "Organic results and rankings from Baidu, China's main search engine.",
+      "price_from": {
+        "type": "per_call",
+        "value": 0.0012,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "confidence": "verified",
+        "checked": "2026-07-28",
+        "note": "price observed at live verification (provider-reported charge)",
+        "usd": 0.0012
+      },
+      "capabilities": 2,
+      "endpoints": 3,
+      "verified": 3,
+      "providers": [
+        "dataforseo",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "beike",
+      "label": "Beike / Lianjia (Chinese property listings)",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Property listings from Beike / Lianjia.",
+      "price_from": null,
+      "capabilities": 3,
+      "endpoints": 3,
+      "verified": 0,
+      "providers": [
+        "justoneapi"
+      ]
+    },
+    {
+      "slug": "bluesky",
+      "label": "Bluesky",
+      "category": "Social",
+      "featured": null,
+      "summary": "Public profiles and posts from Bluesky.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "capabilities": 3,
+      "endpoints": 3,
+      "verified": 0,
+      "providers": [
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "hackernews",
+      "label": "Hacker News",
+      "category": "Community",
+      "featured": null,
+      "summary": "Stories, search and who-is-hiring posts from Hacker News.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 3,
+      "endpoints": 3,
+      "verified": 3,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "markets",
+      "label": "Other market data",
+      "category": "Market data",
+      "featured": null,
+      "summary": "Foreign exchange, commodities, movers and prediction markets.",
+      "price_from": {
+        "type": "per_call",
+        "currency": "credit",
+        "unit": "call",
+        "table": [
+          {
+            "when": {
+              "body.search_type": "proprietary"
+            },
+            "value": 0.005,
+            "times": "body.max_num_results"
+          }
+        ],
+        "fallback": {
+          "value": 0.05,
+          "note": "Ten requested results at the highest source rate for this view."
+        },
+        "settle": "usage",
+        "usage": {
+          "path": "total_deduction_dollars",
+          "unit": "credit"
+        },
+        "source": "observed",
+        "source_url": "https://api.valyu.ai/v1/datasources",
+        "checked": "2026-09-30",
+        "confidence": "verified",
+        "note": "Both prediction sources cost five credits per 1,000 results.",
+        "table_min": 0.005,
+        "usd": 0.05,
+        "usd_min": 0.005
+      },
+      "capabilities": 3,
+      "endpoints": 3,
+      "verified": 0,
+      "providers": [
+        "valyu"
+      ]
+    },
+    {
+      "slug": "naver",
+      "label": "Naver Search Results (SERP)",
+      "category": "SEO/AEO",
+      "featured": null,
+      "summary": "Organic results and rankings from Naver, Korea's main search engine.",
+      "price_from": {
+        "type": "per_call",
+        "value": 0.0006,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "confidence": "verified",
+        "checked": "2026-07-28",
+        "note": "price observed at live verification (provider-reported charge)",
+        "usd": 0.0006
+      },
+      "capabilities": 1,
+      "endpoints": 3,
+      "verified": 3,
+      "providers": [
+        "dataforseo",
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "producthunt",
+      "label": "Product Hunt",
+      "category": "Community",
+      "featured": null,
+      "summary": "Products and daily launches from Product Hunt.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 3,
+      "endpoints": 3,
+      "verified": 3,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "research",
+      "label": "Academic literature",
+      "category": "Research & public data",
+      "featured": null,
+      "summary": "Search scholarly papers and preprints across academic sources.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 3,
+      "endpoints": 3,
+      "verified": 1,
+      "providers": [
+        "crawl4ai",
+        "valyu"
+      ]
+    },
+    {
+      "slug": "snapchat",
+      "label": "Snapchat",
+      "category": "Social",
+      "featured": null,
+      "summary": "Public profiles, Spotlight videos and comments from Snapchat.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "capabilities": 0,
+      "endpoints": 3,
+      "verified": 0,
+      "providers": [
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "soundcloud",
+      "label": "SoundCloud",
+      "category": "Social",
+      "featured": null,
+      "summary": "Artists, tracks and uploads from SoundCloud.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "capabilities": 0,
+      "endpoints": 3,
+      "verified": 0,
+      "providers": [
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "truthsocial",
+      "label": "Truth Social",
+      "category": "Social",
+      "featured": null,
+      "summary": "Public profiles and posts from Truth Social.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "capabilities": 0,
+      "endpoints": 3,
+      "verified": 0,
+      "providers": [
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "yandex",
+      "label": "Yandex Search Results (SERP)",
+      "category": "SEO/AEO",
+      "featured": null,
+      "summary": "Organic results and rankings from Yandex.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.015,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "docs",
+        "source_url": "https://serpapi.com/pricing",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "usd": 0.015
+      },
+      "capabilities": 3,
+      "endpoints": 3,
+      "verified": 3,
+      "providers": [
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "youku",
+      "label": "Youku",
+      "category": "Social",
+      "featured": null,
+      "summary": "Videos, users and search from Youku.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.1,
+        "currency": "CNY",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://www.justoneapi.com/",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "billed only on success (code 0); errors free",
+        "usd": 0.01476
+      },
+      "capabilities": 3,
+      "endpoints": 3,
+      "verified": 3,
+      "providers": [
+        "justoneapi"
+      ]
+    },
+    {
+      "slug": "1688",
+      "label": "1688 (Alibaba wholesale)",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Wholesale item data and search from 1688.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.1,
+        "currency": "CNY",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://www.justoneapi.com/",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "billed only on success (code 0); errors free",
+        "usd": 0.01476
+      },
+      "capabilities": 2,
+      "endpoints": 2,
+      "verified": 2,
+      "providers": [
+        "justoneapi"
+      ]
+    },
+    {
+      "slug": "apple-maps",
+      "label": "Apple Maps",
+      "category": "Reviews & Apps",
+      "featured": null,
+      "summary": "Public Apple Maps places, ratings and reviews.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.00015,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "docs",
+        "source_url": "https://litescrape.com/pricing",
+        "checked": "2026-09-29",
+        "confidence": "verified",
+        "note": "One successful API response consumes one prepaid call; failures are free.",
+        "usd": 0.00015
+      },
+      "capabilities": 2,
+      "endpoints": 2,
+      "verified": 2,
+      "providers": [
+        "litescrape"
+      ]
+    },
+    {
+      "slug": "glassdoor",
+      "label": "Glassdoor",
+      "category": "Reviews & Apps",
+      "featured": null,
+      "summary": "Job listings and company reviews from Glassdoor.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 2,
+      "endpoints": 2,
+      "verified": 2,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "health",
+      "label": "Health & biomedical",
+      "category": "Research & public data",
+      "featured": null,
+      "summary": "Clinical studies, medicine labels and public health statistics.",
+      "price_from": {
+        "type": "per_call",
+        "currency": "credit",
+        "unit": "call",
+        "table": [
+          {
+            "when": {
+              "body.search_type": "proprietary"
+            },
+            "value": 0.003,
+            "times": "body.max_num_results"
+          }
+        ],
+        "fallback": {
+          "value": 0.03,
+          "note": "Ten requested results at the highest source rate for this view."
+        },
+        "settle": "usage",
+        "usage": {
+          "path": "total_deduction_dollars",
+          "unit": "credit"
+        },
+        "source": "observed",
+        "source_url": "https://api.valyu.ai/v1/datasources",
+        "checked": "2026-09-30",
+        "confidence": "verified",
+        "note": "Both health reference sources cost three credits per 1,000 results; the live WHO id is valyu/valyu-who-gho.",
+        "table_min": 0.003,
+        "usd": 0.03,
+        "usd_min": 0.003
+      },
+      "capabilities": 2,
+      "endpoints": 2,
+      "verified": 0,
+      "providers": [
+        "valyu"
+      ]
+    },
+    {
+      "slug": "music-gen",
+      "label": "Music generation",
+      "category": "AI generation",
+      "featured": null,
+      "summary": "Songs and short music clips from a text prompt, with prices side by side.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.04,
+        "per": 1,
+        "unit": "call",
+        "currency": "USD",
+        "source": "docs",
+        "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
+        "checked": "2026-09-30",
+        "confidence": "documented",
+        "note": "$0.04 per 30-second clip, flat. Live 2026-09-30 a prompt returned a 30 s, 192 kbps MP3 (0.73 MB) in 14 s. Only a STOP answer is billed.",
+        "usd": 0.04
+      },
+      "capabilities": 2,
+      "endpoints": 2,
+      "verified": 2,
+      "providers": [
+        "google-ai"
+      ]
+    },
+    {
+      "slug": "wikipedia",
+      "label": "Wikipedia",
+      "category": "Research & public data",
+      "featured": null,
+      "summary": "Article summaries, sections and search from Wikipedia.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 2,
+      "endpoints": 2,
+      "verified": 2,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "xianyu",
+      "label": "Xianyu / Goofish (Alibaba second-hand)",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Second-hand listings and search from Xianyu (Goofish).",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.2,
+        "currency": "CNY",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://www.justoneapi.com/",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "note": "billed only on success (code 0); errors free",
+        "usd": 0.02952
+      },
+      "capabilities": 2,
+      "endpoints": 2,
+      "verified": 2,
+      "providers": [
+        "justoneapi"
+      ]
+    },
+    {
+      "slug": "ai-judge",
+      "label": "AI judgment",
+      "category": "AI generation",
+      "featured": null,
+      "summary": "A label, a score or a yes/no probability over evidence you supply. A judge, not a writer: classify, route, verify, rank.",
+      "price_from": {
+        "type": "per_call",
+        "value": 0.0005,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "fallback": {
+          "value": 0.0005,
+          "note": "$0.042 per million input tokens, so a 10 KB state is ~$0.0001; the reserve is a small ceiling and the provider's reported cost settles."
+        },
+        "settle": "usage",
+        "usage": {
+          "path": "usage.cost",
+          "unit": "usd"
+        },
+        "source": "docs",
+        "source_url": "https://openrouter.ai/typesafe/jev-1.13",
+        "checked": "2026-09-23",
+        "confidence": "verified",
+        "note": "Settles at the reply's `usage.cost`. VERIFIED 2026-09-23: a ~600-byte request cost $0.0000171.",
+        "usd": 0.0005
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "openrouter"
+      ]
+    },
+    {
+      "slug": "airbnb",
+      "label": "Airbnb",
+      "category": "Reviews & Apps",
+      "featured": null,
+      "summary": "Listings, prices and ratings from Airbnb.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "booking",
+      "label": "Booking.com",
+      "category": "Reviews & Apps",
+      "featured": null,
+      "summary": "Hotels, prices and ratings from Booking.com.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "crunchbase",
+      "label": "Crunchbase",
+      "category": "Enrichment",
+      "featured": null,
+      "summary": "Company profiles from Crunchbase.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "dewu",
+      "label": "Dewu / Poizon",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Product data from Dewu (Poizon).",
+      "price_from": null,
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 0,
+      "providers": [
+        "justoneapi"
+      ]
+    },
+    {
+      "slug": "economics",
+      "label": "Economic indicators",
+      "category": "Research & public data",
+      "featured": null,
+      "summary": "Official labor and development statistics.",
+      "price_from": {
+        "type": "per_call",
+        "currency": "credit",
+        "unit": "call",
+        "table": [
+          {
+            "when": {
+              "body.search_type": "proprietary"
+            },
+            "value": 0.005,
+            "times": "body.max_num_results"
+          }
+        ],
+        "fallback": {
+          "value": 0.05,
+          "note": "Ten requested results at the highest source rate for this view."
+        },
+        "settle": "usage",
+        "usage": {
+          "path": "total_deduction_dollars",
+          "unit": "credit"
+        },
+        "source": "observed",
+        "source_url": "https://api.valyu.ai/v1/datasources",
+        "checked": "2026-09-30",
+        "confidence": "verified",
+        "note": "Both official-statistics sources cost five credits per 1,000 results.",
+        "table_min": 0.005,
+        "usd": 0.05,
+        "usd_min": 0.005
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 0,
+      "providers": [
+        "valyu"
+      ]
+    },
+    {
+      "slug": "etsy",
+      "label": "Etsy",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Products and shops from Etsy search.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "home-depot",
+      "label": "Home Depot",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Search Home Depot products by keyword.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.015,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "docs",
+        "source_url": "https://serpapi.com/pricing",
+        "checked": "2026-07-28",
+        "confidence": "documented",
+        "usd": 0.015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "serpapi"
+      ]
+    },
+    {
+      "slug": "indeed",
+      "label": "Indeed",
+      "category": "Community",
+      "featured": null,
+      "summary": "Job search results from Indeed.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 0,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "kick",
+      "label": "Kick",
+      "category": "Social",
+      "featured": null,
+      "summary": "Clips and streamer content from Kick.",
+      "price_from": {
+        "type": "per_call",
+        "value": 1,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "rate_card_api",
+        "source_url": "https://docs.scrapecreators.com/openapi.json",
+        "checked": "2026-07-28",
+        "confidence": "verified",
+        "usd": 0.00188
+      },
+      "capabilities": 0,
+      "endpoints": 1,
+      "verified": 0,
+      "providers": [
+        "scrapecreators"
+      ]
+    },
+    {
+      "slug": "lazada",
+      "label": "Lazada",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Product listings and search from Lazada across Southeast Asia (SG, MY, VN, TH, PH, ID).",
+      "price_from": {
+        "type": "per_result",
+        "value": 0.005,
+        "currency": "USD",
+        "per": 1,
+        "unit": "result",
+        "source": "observed",
+        "source_url": "https://api.apify.com/v2/acts/herus13~lazada-scraper",
+        "checked": "2026-09-26",
+        "confidence": "verified",
+        "note": "pay-per-event: one product-result event per product, $0.005 flat (no plan tiers), no start event. Since the actor's 2026-09-25 pricing it refuses maxTotalChargeUsd below 0.05, returns at least 10 products (max_results below 10 is raised to 10) and no longer bills run compute to the caller, so there is no call_fee and a call costs about $0.05. OBSERVED 2026-09-26: a 10-product, 79-second run billed chargedEventCounts {product-result: 10}, usageTotalUsd 0.05 with no platform usage. A run takes about a minute even for a few products, so keep max_results low on treg's key: a run past the 90 s timeout answers 400 and is not charged to you. Charged per product produced even if the run is cut short \u2014 cap with maxTotalChargeUsd",
+        "usd": 0.005
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "apify"
+      ]
+    },
+    {
+      "slug": "medium",
+      "label": "Medium",
+      "category": "Research & public data",
+      "featured": null,
+      "summary": "Posts of a Medium tag, author or publication.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 0,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "packages",
+      "label": "Package registries",
+      "category": "Developer",
+      "featured": null,
+      "summary": "Package facts from npm, PyPI and crates.io.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "remoteok",
+      "label": "Remote OK",
+      "category": "Community",
+      "featured": null,
+      "summary": "Remote job listings from Remote OK.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "seznam",
+      "label": "Seznam Search Results (SERP)",
+      "category": "SEO/AEO",
+      "featured": null,
+      "summary": "Organic results and rankings from Seznam, the Czech search engine.",
+      "price_from": {
+        "type": "per_call",
+        "value": 0.0006,
+        "currency": "USD",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "confidence": "verified",
+        "checked": "2026-07-28",
+        "note": "price observed at live verification (provider-reported charge)",
+        "usd": 0.0006
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "dataforseo"
+      ]
+    },
+    {
+      "slug": "shopify",
+      "label": "Shopify stores",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "The product catalog of any Shopify store.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "stackoverflow",
+      "label": "Stack Overflow",
+      "category": "Developer",
+      "featured": null,
+      "summary": "Questions by tag from Stack Overflow.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "steam",
+      "label": "Steam",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Games, prices and reviews from the Steam store.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "substack",
+      "label": "Substack",
+      "category": "Research & public data",
+      "featured": null,
+      "summary": "Latest posts of a Substack publication.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "weather",
+      "label": "Weather",
+      "category": "Research & public data",
+      "featured": null,
+      "summary": "Daily weather forecasts for a place.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 0,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "weworkremotely",
+      "label": "We Work Remotely",
+      "category": "Community",
+      "featured": null,
+      "summary": "Remote job listings from We Work Remotely.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    },
+    {
+      "slug": "zillow",
+      "label": "Zillow",
+      "category": "E-commerce",
+      "featured": null,
+      "summary": "Homes, prices and listing facts from Zillow.",
+      "price_from": {
+        "type": "per_success",
+        "value": 0.15,
+        "currency": "credit",
+        "per": 1,
+        "unit": "call",
+        "source": "observed",
+        "source_url": "https://api.crawl4ai.com/recipes",
+        "checked": "2026-10-12",
+        "confidence": "verified",
+        "note": "treg's account price: 0.15 credits a call whatever pages the run fetched, second-source records included; a reply with no rows, a refused input and a failed run are free. The x-c4-cost header settles the actual charge.",
+        "usd": 0.00015
+      },
+      "capabilities": 1,
+      "endpoints": 1,
+      "verified": 1,
+      "providers": [
+        "crawl4ai"
+      ]
+    }
+  ],
+  "providers": {
+    "adyntel": "Adyntel",
+    "aiark": "AI Ark",
+    "akta": "Akta by Wokelo",
+    "anyapi": "AnyAPI",
+    "apify": "Apify",
+    "apollo": "Apollo.io",
+    "aviato": "Aviato",
+    "blitzapi": "BlitzAPI",
+    "bounceban": "BounceBan",
+    "branddev": "Context.dev",
+    "brightdata": "Bright Data",
+    "cloro": "cloro",
+    "coingecko": "CoinGecko",
+    "companyenrich": "CompanyEnrich",
+    "contactout": "ContactOut",
+    "coresignal": "Coresignal",
+    "crawl4ai": "Crawl4AI",
+    "crunchbase": "Crunchbase",
+    "crustdata": "Crustdata",
+    "dataforseo": "DataForSEO",
+    "datagma": "Datagma",
+    "diffbot": "Diffbot",
+    "dropleads": "Dropleads",
+    "enrichlayer": "Enrichlayer",
+    "eodhd": "EODHD",
+    "exa": "Exa",
+    "facebook": "Facebook Pages",
+    "fetchinio": "Fetchin",
+    "fiber-ai": "Fiber AI",
+    "financialdatasets": "Financial Datasets",
+    "findymail": "Findymail",
+    "finnhub": "Finnhub",
+    "firecrawl": "Firecrawl",
+    "fishaudio": "Fish Audio",
+    "getleadsio": "GetLeads.io",
+    "google-ads": "Google Ads",
+    "google-ai": "Google AI (Gemini API)",
+    "google-analytics": "Google Analytics",
+    "google-business-profile": "Google Business Profile",
+    "google-search-console": "Google Search Console",
+    "google-tag-manager": "Google Tag Manager",
+    "harvestapi": "HarvestAPI",
+    "hlrlookup": "HLR Lookup",
+    "hunter": "Hunter",
+    "icypeas": "Icypeas",
+    "influencersclub": "influencers.club",
+    "instagram": "Instagram",
+    "justoneapi": "Just One API",
+    "keenable": "Keenable",
+    "leadmagic": "LeadMagic",
+    "leadsforge": "LeadsForge",
+    "limadata": "LimaData",
+    "linkedin": "LinkedIn",
+    "linkup": "Linkup",
+    "litescrape": "Litescrape",
+    "lusha": "Lusha",
+    "majestic": "Majestic",
+    "marketstack": "Marketstack",
+    "meta-ad-library": "Meta Ad Library",
+    "meta-ads": "Meta Ads",
+    "microsoft-ads": "Microsoft Advertising",
+    "millionverifier": "MillionVerifier",
+    "minimax": "MiniMax",
+    "moltsets": "MoltSets",
+    "moz": "Moz",
+    "oceanio": "Ocean.io",
+    "octen": "Octen",
+    "olostep": "Olostep",
+    "openmart": "Openmart",
+    "openrouter": "OpenRouter",
+    "parallel": "Parallel",
+    "pdl": "People Data Labs",
+    "perplexity": "Perplexity",
+    "piapi": "PiAPI",
+    "pinterest-ads": "Pinterest Ads",
+    "polygon": "Polygon.io",
+    "predictleads": "PredictLeads",
+    "prospeo": "Prospeo",
+    "quickenrich": "QuickEnrich",
+    "reapi": "reAPI",
+    "replicate": "Replicate",
+    "scrapecreators": "ScrapeCreators",
+    "scrapegraphai": "ScrapeGraphAI",
+    "scrubby": "Scrubby",
+    "search1api": "Search1API",
+    "semrush": "Semrush",
+    "seranking": "SE Ranking",
+    "serpapi": "SerpApi",
+    "serper": "Serper",
+    "serpstat": "Serpstat",
+    "sixtyfour": "Sixtyfour AI",
+    "slack": "Slack",
+    "snapchat-ads": "Snapchat Ads",
+    "spidercloud": "Spider",
+    "spyfu": "SpyFu",
+    "sumble": "Sumble",
+    "tavily": "Tavily",
+    "thecompaniesapi": "The Companies API",
+    "tiingo": "Tiingo",
+    "tikhub": "TikHub",
+    "tiktok": "TikTok",
+    "tiktok-ads": "TikTok Ads",
+    "tinyfish": "TinyFish",
+    "tomba": "Tomba",
+    "trestleiq": "TrestleIQ",
+    "trykitt": "Kitt AI",
+    "twelvedata": "Twelve Data",
+    "valyu": "Valyu",
+    "village": "Village.ai",
+    "wiza": "Wiza",
+    "x": "X (Twitter)",
+    "you": "You.com",
+    "youtube": "YouTube",
+    "zerobounce": "ZeroBounce"
+  },
+  "generated_from": "catalog"
+}
