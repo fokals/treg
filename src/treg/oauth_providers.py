@@ -4001,6 +4001,31 @@ PINTEREST_ADS = OAuthProvider(
     probe_path="/user_account",  # cheap token check once configured; auto-provisions a Bearer tool
 )
 
+FOKALS = OAuthProvider(
+    service="fokals",
+    display_name="Fokals",
+    auth_kind="key",
+    token_label="API key",
+    token_placeholder="your Fokals API key",
+    token_header="Authorization",
+    token_format="Bearer {secret}",
+    setup_url="https://www.fokals.com/account",
+    setup_action_label="Get your Fokals API key",
+    setup_steps=(
+        "Create a free account at fokals.com/signup (it opens with $1 of credit).",
+        "On your account page, make a key and copy it.",
+    ),
+    setup_note="Billed per company returned from a prepaid balance; counting, identifying a company and the account check are free.",
+    auth_uri="", token_uri="",
+    scopes={},
+    client_id_setting="", client_secret_setting="",
+    category="Enrichment",
+    summary="Company signals: the technologies a company runs, its open roles, buying intent topics, announcements and website changes.",
+    base_url="https://api.fokals.com/v1",
+    docs_url="https://www.fokals.com/docs/connect",
+    probe_path="/account",  # free; a bad key gets a 401
+)
+
 REGISTRY: dict[str, OAuthProvider] = {
     p.service: p
     for p in (
@@ -4021,7 +4046,7 @@ REGISTRY: dict[str, OAuthProvider] = {
         SCRAPEGRAPHAI, SERPER, LITESCRAPE, CLORO,
         # more Enrichment API-key providers
         LUSHA, CORESIGNAL, DIFFBOT, THECOMPANIESAPI, LEADMAGIC, ENRICHLAYER, FIBER_AI, CRUSTDATA, AVIATO,
-        COMPANYENRICH, OCEANIO, ADYNTEL, TOMBA, TRESTLEIQ, HLRLOOKUP, PREDICTLEADS, FINDYMAIL, BRANDDEV, ICYPEAS, LEADSFORGE,
+        COMPANYENRICH, OCEANIO, ADYNTEL, TOMBA, TRESTLEIQ, HLRLOOKUP, PREDICTLEADS, FOKALS, FINDYMAIL, BRANDDEV, ICYPEAS, LEADSFORGE,
         INFLUENCERSCLUB, VILLAGE,
         # Market data API-key providers
         COINGECKO, POLYGON, FINNHUB, TWELVEDATA, FMP, EODHD, MARKETSTACK, TIINGO,
