@@ -29,6 +29,7 @@ import yaml
 # The YAML data ships at the package root (`src/treg/catalog/`), not next to this module.
 CATALOG_DIR = Path(__file__).resolve().parents[2] / "catalog"
 EXAMPLES_DIRNAME = "examples"
+EXAMPLE_MAX_BYTES = 10_000
 CAPABILITIES_FILE = "capabilities.yaml"
 FX_FILE = "fx.yaml"
 ALIASES_FILE = "aliases.yaml"

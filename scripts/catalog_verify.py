@@ -40,11 +40,12 @@ from urllib.parse import urlsplit
 import httpx
 import yaml
 
+from treg.domain.catalog.store import EXAMPLE_MAX_BYTES as MAX_BYTES
+
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "src" / "treg" / "catalog"
 MAX_STR = 500
 MAX_LIST = 2
-MAX_BYTES = 10_000
 
 
 def truncate(node, depth=0):
