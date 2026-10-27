@@ -66,11 +66,8 @@ async def _call_tool(client: AsyncClient, name: str, args: dict, token: str,
     }, token, extra_headers, path=path)
     response = await _rpc(client, "tools/call", {"name": name, "arguments": args},
                           token, extra_headers, path=path)
-    payload = response.json()
-    content = (payload.get("result") or {}).get("content") or []
-    if content and content[0].get("type") == "text":
-        return json.loads(content[0]["text"])
-    return payload
+    from test_mcp import _text_result
+    return _text_result(name, response.json())
 
 
 async def _modern_rpc(client: AsyncClient, method: str, params=None,

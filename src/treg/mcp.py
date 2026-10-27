@@ -453,6 +453,9 @@ class CallOut(TypedDict, total=False):
     whose_error: str | None         # "treg" or "provider" — who to blame, and whether to retry
     hint: str | None
     did_you_mean: list[str] | None  # real ids close to one that missed
+    routed_tool: str | None
+    suggestion: str | None
+    upstream_failed: str | None
     error: str | None
     detail: str | None
 
@@ -1249,46 +1252,9 @@ async def _catalog_get_impl(
             out["overflow_price_usd"] = ep["overflow_price_usd"]
             out["overflow_price_unit"] = ep.get("overflow_price_unit")
             out["overflow_via"] = ep.get("overflow_via")
-    if isinstance(out, dict):
-        if (out.get("routing") or {}).get("plan"):
-            out.pop("siblings", None)
-        elif out.get("siblings"):
-            out["siblings"] = [_sibling_row(s) for s in out["siblings"]]
-        if _json_chars(out.get("example_response")) > _EXAMPLE_MAX_CHARS:
-            out["example_response"] = _first_of_each_list(out["example_response"])
-            if _json_chars(out["example_response"]) > _EXAMPLE_MAX_CHARS:
-                out["example_response"] = None
-            url = f"{get_settings().public_url.rstrip('/')}/catalog/examples/{quote(endpoint_id, safe='')}"
-            out["hints"] = [*(out.get("hints") or []),
-                            f"example_response is shortened; the full capture is at {url}"]
+    if isinstance(out, dict) and (out.get("routing") or {}).get("plan"):
+        out.pop("siblings", None)
     return out
-
-
-_SIBLING_KEYS = ("id", "provider", "name", "hub", "scope", "status", "status_note", "superseded_by",
-                 "price_line", "observed")
-_SIBLING_COST_KEYS = ("type", "unit", "per", "usd", "display_usd", "varies")
-_EXAMPLE_MAX_CHARS = 20_000
-
-
-def _sibling_row(s: dict[str, Any]) -> dict[str, Any]:
-    row = {k: s[k] for k in _SIBLING_KEYS if s.get(k) is not None}
-    if isinstance(s.get("cost"), dict):
-        row["cost"] = {k: s["cost"][k] for k in _SIBLING_COST_KEYS if k in s["cost"]}
-    if isinstance(s.get("reviews"), dict):
-        row["reviews"] = {k: v for k, v in s["reviews"].items() if k != "samples"}
-    return row
-
-
-def _json_chars(value: Any) -> int:
-    return 0 if value is None else len(json.dumps(value, ensure_ascii=False, separators=(",", ":")))
-
-
-def _first_of_each_list(value: Any) -> Any:
-    if isinstance(value, list):
-        return [_first_of_each_list(v) for v in value[:1]]
-    if isinstance(value, dict):
-        return {k: _first_of_each_list(v) for k, v in value.items()}
-    return value
 
 
 # Everything below spends money or reads a team's data - all of it goes back through the API.

@@ -815,6 +815,29 @@ def example_path(endpoint_id: str) -> Path | None:
     return CATALOG_DIR / EXAMPLES_DIRNAME / ep["example_file"]
 
 
+_COST_EVIDENCE = frozenset({"note", "source", "source_url", "checked", "confidence"})
+
+
+def sibling_view(ep: dict, provider_display: str, cat: Catalog) -> dict:
+    """One row of an endpoint's comparison with the other providers of its job; the full view is
+    that endpoint's own detail."""
+    cost = cat.cost_view(ep["cost"], ep["provider"])
+    return {
+        "id": ep["id"],
+        "provider": ep["provider"],
+        "provider_display": provider_display,
+        "name": ep.get("name") or "",
+        "scope": ep["scope"],
+        "kind": ep.get("kind") or DEFAULT_KIND,
+        "cost": {k: v for k, v in cost.items() if k not in _COST_EVIDENCE} if cost else cost,
+        "platform_eligible": cat.platform_eligible(ep),
+        "status": ep.get("status") or None,
+        "status_note": ep.get("status_note") or None,
+        "superseded_by": ep.get("superseded_by") or None,
+        "verified": ep["verified"],
+    }
+
+
 def endpoint_view(ep: dict, provider_display: str, cat: Catalog | None = None) -> dict:
     """The public JSON shape of one endpoint (the dashboard + CLI render this)."""
     return {

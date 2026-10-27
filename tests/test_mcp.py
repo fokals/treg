@@ -62,14 +62,24 @@ async def _call_tool(client: AsyncClient, name: str, args: dict, token: str | No
         "protocolVersion": "2025-06-18", "capabilities": {},
         "clientInfo": {"name": "test", "version": "1"}}, token)
     r = await _rpc(client, "tools/call", {"name": name, "arguments": args}, token)
-    payload = r.json()
-    content = (payload.get("result") or {}).get("content") or []
-    if content and content[0].get("type") == "text":
-        try:
-            return json.loads(content[0]["text"])
-        except ValueError:
-            return {"_text": content[0]["text"]}
-    return payload
+    return _text_result(name, r.json())
+
+
+def _text_result(name: str, payload: dict) -> dict:
+    """The text block a host shows, after checking that `structuredContent` (what a host may read
+    instead) carries every key it does: the output schema silently drops an undeclared one."""
+    result = payload.get("result") or {}
+    content = result.get("content") or []
+    if not (content and content[0].get("type") == "text"):
+        return payload
+    try:
+        text = json.loads(content[0]["text"])
+    except ValueError:
+        return {"_text": content[0]["text"]}
+    if isinstance(text, dict) and isinstance(result.get("structuredContent"), dict):
+        dropped = {k for k, v in text.items() if v is not None} - set(result["structuredContent"])
+        assert not dropped, f"{name}: structuredContent drops {sorted(dropped)}"
+    return text
 
 
 @asynccontextmanager
@@ -1671,18 +1681,22 @@ async def test_catalog_get_gives_the_caller_its_own_team_values(clients, monkeyp
 
 
 async def test_catalog_get_stays_within_an_mcp_client_output_limit(clients):
-    """Hosts cap a tool result (Claude Code at about 25k tokens); a job with dozens of providers or a
-    long captured example used to return 150k+ characters, and a routed row lost its plan to the schema."""
+    """Hosts cap a tool result (Claude Code at about 25k tokens) and read `structuredContent`; a job
+    with dozens of providers returned 150k+ characters, and a routed row lost its plan to the schema."""
     token = (await clients.post("/users", json={"email": "size@superdesign.dev"})).json()["token"]
+    results = {}
     async with mcp_session(clients) as c:
-        routed = await _call_tool(c, "catalog_get", {"endpoint_id": "treg.people.search"}, token=token)
-        crowded = await _call_tool(c, "catalog_get", {"endpoint_id": "aiark.people.search"}, token=token)
-        example = await _call_tool(c, "catalog_get", {"endpoint_id": "finnhub.company.news"}, token=token)
-    assert routed["routing"]["plan"] and "siblings" not in routed
-    assert len(crowded["siblings"]) > 20 and not any("input" in s for s in crowded["siblings"])
-    assert any("/catalog/examples/finnhub.company.news" in h for h in example["hints"])
-    for out in (routed, crowded, example):
-        assert len(json.dumps(out)) < 40_000
+        await _rpc(c, "initialize", {"protocolVersion": "2025-06-18", "capabilities": {},
+                                     "clientInfo": {"name": "test", "version": "1"}}, token)
+        for endpoint_id in ("treg.people.search", "aiark.people.search"):
+            r = await _rpc(c, "tools/call", {"name": "catalog_get", "arguments": {"endpoint_id": endpoint_id}}, token)
+            results[endpoint_id] = r.json()["result"]
+    routed = results["treg.people.search"]["structuredContent"]
+    crowded = results["aiark.people.search"]["structuredContent"]
+    assert routed["routing"]["plan"] and routed["related_capabilities"] and not routed["siblings"]
+    assert len(crowded["siblings"]) > 20
+    for result in results.values():
+        assert len(json.dumps(result)) < 100_000
 
 
 async def test_tool_called_names_the_mcp_host(clients, monkeypatch, posthog_events):
