@@ -11,7 +11,7 @@ The transport is exercised as a real MCP client would: JSON-RPC over the mounted
 
 from __future__ import annotations
 
-from conftest import verified_signup, funded_user
+from conftest import verified_signup, funded_user, mcp_text_result
 
 import json
 from contextlib import asynccontextmanager
@@ -62,24 +62,8 @@ async def _call_tool(client: AsyncClient, name: str, args: dict, token: str | No
         "protocolVersion": "2025-06-18", "capabilities": {},
         "clientInfo": {"name": "test", "version": "1"}}, token)
     r = await _rpc(client, "tools/call", {"name": name, "arguments": args}, token)
-    return _text_result(name, r.json())
+    return mcp_text_result(name, r.json())
 
-
-def _text_result(name: str, payload: dict) -> dict:
-    """The text block a host shows, after checking that `structuredContent` (what a host may read
-    instead) carries every key it does: the output schema silently drops an undeclared one."""
-    result = payload.get("result") or {}
-    content = result.get("content") or []
-    if not (content and content[0].get("type") == "text"):
-        return payload
-    try:
-        text = json.loads(content[0]["text"])
-    except ValueError:
-        return {"_text": content[0]["text"]}
-    if isinstance(text, dict) and isinstance(result.get("structuredContent"), dict):
-        dropped = {k for k, v in text.items() if v is not None} - set(result["structuredContent"])
-        assert not dropped, f"{name}: structuredContent drops {sorted(dropped)}"
-    return text
 
 
 @asynccontextmanager

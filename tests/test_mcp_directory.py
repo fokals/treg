@@ -10,6 +10,7 @@ from fastapi import FastAPI
 from httpx import ASGITransport, AsyncClient
 from starlette.routing import Mount
 
+from conftest import mcp_text_result
 from treg import mcp
 from treg.domain.identity import mcp_oauth
 from treg.routers import auth as auth_routes
@@ -66,8 +67,7 @@ async def _call_tool(client: AsyncClient, name: str, args: dict, token: str,
     }, token, extra_headers, path=path)
     response = await _rpc(client, "tools/call", {"name": name, "arguments": args},
                           token, extra_headers, path=path)
-    from test_mcp import _text_result
-    return _text_result(name, response.json())
+    return mcp_text_result(name, response.json())
 
 
 async def _modern_rpc(client: AsyncClient, method: str, params=None,

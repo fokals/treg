@@ -835,6 +835,8 @@ def sibling_view(ep: dict, provider_display: str, cat: Catalog) -> dict:
         "status_note": ep.get("status_note") or None,
         "superseded_by": ep.get("superseded_by") or None,
         "verified": ep["verified"],
+        "params": [k for where in ("pathParams", "queryParams", "body")
+                   if isinstance(params := (ep.get("input") or {}).get(where), dict) for k in params],
     }
 
 
