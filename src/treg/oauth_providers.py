@@ -4135,7 +4135,7 @@ FOKALS = OAuthProvider(
     scopes={},
     client_id_setting="", client_secret_setting="",
     category="Enrichment",
-    summary="Company signals: the technologies a company runs, its open roles, buying intent topics, announcements and website changes.",
+    summary="Company signals: tech stack and its changes, open roles and pay, buying intent, funding, news, website changes, health, AI readiness and trends.",
     base_url="https://api.fokals.com/v1",
     docs_url="https://www.fokals.com/docs/connect",
     probe_path="/account",  # free; a bad key gets a 401
