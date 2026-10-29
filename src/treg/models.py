@@ -975,7 +975,17 @@ class LedgerEntry(SQLModel, table=True):
     # `(org_id, created_at)` serves "this org, since midnight" (`money.spent_today_from_ledger`)
     # and `entries_of` (`/billing`). With only single-column indexes the planner walks the whole
     # platform's day and filters the org in memory. Revision 0021 builds it concurrently.
-    __table_args__ = (Index("ix_ledgerentry_org_id_created_at", "org_id", "created_at"),)
+    # The partial settle index carries `amount_micro` so `money.spend_since` sums a window from the
+    # index alone instead of fetching every row's heap page (revision 0089). The partial topup index
+    # finds a team's few top-ups without walking all of its rows (revision 0090).
+    __table_args__ = (Index("ix_ledgerentry_org_id_created_at", "org_id", "created_at"),
+                      Index("ix_ledgerentry_settle_org_id_created_at", "org_id", "created_at",
+                            postgresql_include=["amount_micro"],
+                            postgresql_where=text("kind = 'settle'"),
+                            sqlite_where=text("kind = 'settle'")),
+                      Index("ix_ledgerentry_topup_org_id_created_at", "org_id", "created_at",
+                            postgresql_where=text("kind = 'topup'"),
+                            sqlite_where=text("kind = 'topup'")))
 
     id: str = Field(primary_key=True)  # uuid4 hex
     org_id: int = Field(foreign_key="org.id", index=True)
@@ -2117,8 +2127,8 @@ class ArenaEvaluation(SQLModel, table=True):
 
 
 class ArchiveEndpointStat(SQLModel, table=True):
-    """The archive report's running totals, one row per endpoint — maintained by the recorder in
-    the SAME transaction as each snapshot, so the panel reads 50 tiny rows instead of walking
+    """The archive report's running totals, one row per endpoint — maintained by the recorder
+    through batched per-endpoint deltas (archive.flush_stats), so the panel reads 50 tiny rows instead of walking
     434k keys + 505k snapshots (measured 9.9s + 8.0s + 14.8s per report on prod, 2026-09-03).
     Counters move only via atomic column arithmetic (col = col + n): the credit-block drift
     taught us what read-modify-write does under parallel settles."""
